@@ -123,6 +123,15 @@ type Dict = {
     body: string
     status: { title: string; text: string }
     principles: { title: string; text: string }[]
+    departmentsTitle: string
+    departmentsLead: string
+    departments: { id: string; name: string; icon: string; desc: string; services: string[] }[]
+    valuesTitle: string
+    valuesLead: string
+    values: { title: string; text: string }[]
+    processTitle: string
+    processLead: string
+    processSteps: { n: string; title: string; desc: string }[]
   }
   contact: {
     title: string
@@ -411,7 +420,7 @@ const ro: Dict = {
     statsTitle: 'Capacități',
     stats: [
       { value: 'de la 150€', label: 'Preț de pornire' },
-      { value: '3 departe', label: 'Juridic · IT · PM' },
+      { value: '3 departamente', label: 'Juridic · IT · PM' },
       { value: '99.5%', label: 'Uptime garantat' },
       { value: '3 zile', label: 'Pentru primul demo' },
     ],
@@ -570,6 +579,82 @@ const ro: Dict = {
         text:
           'Directorul, juristul și specialistul IT primesc fiecare o concluzie pe înțelesul lor. Fără jargon doar pentru a părea experți.',
       },
+    ],
+    departmentsTitle: 'Cele trei departamente',
+    departmentsLead:
+      'Fiecare departament are propriul său lead și propriul său set de responsabilități. Împreună acoperă întreg ciclul de viață al unui proiect — de la evaluare, prin implementare, până la livrare și suport.',
+    departments: [
+      {
+        id: 'legal',
+        name: 'Departamentul Juridic',
+        icon: 'shield',
+        desc: 'Conformitate GDPR, contracte, evaluări de risc, politici de confidențialitate, asistență în interacțiunea cu autoritățile de supraveghere.',
+        services: [
+          'Audit de conformitate Legea nr. 195/2024',
+          'Politici de confidențialitate și cookie',
+          'Registrul prelucrărilor',
+          'Procedura de reacție la scurgerea de date',
+          'Asistență DPO ca serviciu',
+          'Pregătirea pentru controlul autorității',
+        ],
+      },
+      {
+        id: 'it',
+        name: 'Departamentul IT',
+        icon: 'code',
+        desc: 'Dezvoltare web și aplicații mobile, integrări tehnice, configurări de securitate, infrastructură cloud, mentenanță pe termen lung.',
+        services: [
+          'Site-uri cinematice și aplicații web',
+          'Aplicații mobile iOS și Android',
+          'Headless CMS și e-commerce',
+          'Integrări plăți, CRM, API-uri terțe',
+          'Implementare mecanism de consimțământ cookie',
+          'Securitate: HTTPS, CSP, HSTS, hardening',
+        ],
+      },
+      {
+        id: 'pm',
+        name: 'Departamentul Project Management',
+        icon: 'compass',
+        desc: 'Planificare, estimări, controlul calității, comunicare cu clientul, gestionarea riscurilor, livrare conform termenelor agreate.',
+        services: [
+          'Discovery și definirea domeniului proiectului',
+          'Planificare sprinturi și estimări realiste',
+          'Demo-uri săptămânale cu clientul',
+          'Controlul calității (QA) și revizuirea livrabilelor',
+          'Comunicare proactivă și raportare transparentă',
+          'Suport post-lansare și mentenanță',
+        ],
+      },
+    ],
+    valuesTitle: 'Valorile noastre',
+    valuesLead:
+      'Trei convingeri care ne ghidează în fiecare proiect — indiferent dacă e un audit GDPR de o zi sau o aplicație mobilă de șase luni.',
+    values: [
+      {
+        title: 'Dovezi, nu păreri',
+        text: 'Orice concluzie se bazează pe dovezi colectate: capturi de ecran, liste de cereri, fragmente de cod. Nimic nu rămâne la nivelul „cred că...”.',
+      },
+      {
+        title: 'Claritate pe trei niveluri',
+        text: 'Directorul primește o concluzie pe înțelesul său, juristul — trimiteri la articolele legii, IT-ul — identificatori preciși (URL, cerere, script).',
+      },
+      {
+        title: 'Planuri pe care le putem onora',
+        text: 'Nu promitem termene irealiste ca să câștigăm proiectul. Estimăm corect și comunicăm deschis dacă apar întârzieri.',
+      },
+      {
+        title: 'Confidențialitate strictă',
+        text: 'NDA cu fiecare client, fără logo-uri publice, date segregate pe proiect, ștergere la finalul colaborării.',
+      },
+    ],
+    processTitle: 'Cum lucrăm cu un client nou',
+    processLead: 'Patru pași de la primul contact până la livrare. Fără surprize, fără costuri ascunse.',
+    processSteps: [
+      { n: '01', title: 'Discuție inițială', desc: '30–60 minute. Înțelegem obiectivele, constrângerile, bugetul. Vă spunem cinstit dacă vă putem ajuta sau nu.' },
+      { n: '02', title: 'Propunere fermă', desc: 'Trimitem o ofertă scrisă cu domeniu, livrabile, termene și preț. Fără costuri ascunse, fără modificări ulterioare.' },
+      { n: '03', title: 'Execuție', desc: 'Sprinturi săptămânale cu demo-uri. Aveți vizibilitate constantă asupra progresului. PUTEM OPRI oricând.' },
+      { n: '04', title: 'Livrare și suport', desc: 'Predăm livrabilele, oferim instruire și suport post-lansare pe perioada agreată.' },
     ],
   },
   contact: {
@@ -1182,6 +1267,82 @@ const ru: Dict = {
           'Директор, юрист и IT-специалист получают каждый вывод на своём языке. Без жаргона ради показной экспертности.',
       },
     ],
+    departmentsTitle: 'Три наших отдела',
+    departmentsLead:
+      'У каждого отдела — свой руководитель и свой набор обязанностей. Вместе они покрывают весь жизненный цикл проекта — от оценки, через внедрение, до сдачи и поддержки.',
+    departments: [
+      {
+        id: 'legal',
+        name: 'Юридический отдел',
+        icon: 'shield',
+        desc: 'GDPR-соответствие, договоры, оценки рисков, политики конфиденциальности, сопровождение при взаимодействии с надзорными органами.',
+        services: [
+          'Аудит соответствия Закону № 195/2024',
+          'Политики конфиденциальности и cookie',
+          'Реестр обработок',
+          'Процедура реагирования на утечку данных',
+          'DPO как услуга',
+          'Подготовка к проверке надзорного органа',
+        ],
+      },
+      {
+        id: 'it',
+        name: 'IT-отдел',
+        icon: 'code',
+        desc: 'Веб-разработка и мобильные приложения, технические интеграции, настройки безопасности, облачная инфраструктура, долгосрочное сопровождение.',
+        services: [
+          'Кинематографические сайты и веб-приложения',
+          'Мобильные приложения для iOS и Android',
+          'Headless CMS и e-commerce',
+          'Интеграции платежей, CRM, сторонних API',
+          'Внедрение механизма согласия cookie',
+          'Безопасность: HTTPS, CSP, HSTS, hardening',
+        ],
+      },
+      {
+        id: 'pm',
+        name: 'Отдел Project Management',
+        icon: 'compass',
+        desc: 'Планирование, оценки, контроль качества, коммуникация с клиентом, управление рисками, сдача в согласованные сроки.',
+        services: [
+          'Discovery и определение рамок проекта',
+          'Планирование спринтов и реалистичные оценки',
+          'Еженедельные демо с клиентом',
+          'Контроль качества (QA) и ревью результатов',
+          'Проактивная коммуникация и прозрачная отчётность',
+          'Поддержка после запуска и сопровождение',
+        ],
+      },
+    ],
+    valuesTitle: 'Наши ценности',
+    valuesLead:
+      'Три убеждения, которые направляют нас в каждом проекте — будь то GDPR-аудит на один день или мобильное приложение на полгода.',
+    values: [
+      {
+        title: 'Доказательства, а не мнения',
+        text: 'Любой вывод основан на собранных доказательствах: скриншоты, списки запросов, фрагменты кода. Ничего на уровне «мне кажется...».',
+      },
+      {
+        title: 'Ясность на трёх уровнях',
+        text: 'Директор получает вывод на своём языке, юрист — ссылки на статьи закона, IT — точные идентификаторы (URL, запрос, скрипт).',
+      },
+      {
+        title: 'Планы, которые мы можем выполнить',
+        text: 'Не обещаем нереалистичные сроки ради выигрыша проекта. Оцениваем честно и открыто сообщаем о задержках.',
+      },
+      {
+        title: 'Строгая конфиденциальность',
+        text: 'NDA с каждым клиентом, без публичных логотипов, данные разделены по проектам, удаление по завершении сотрудничества.',
+      },
+    ],
+    processTitle: 'Как мы работаем с новым клиентом',
+    processLead: 'Четыре шага от первого контакта до сдачи. Без сюрпризов, без скрытых расходов.',
+    processSteps: [
+      { n: '01', title: 'Первичная беседа', desc: '30–60 минут. Понимаем цели, ограничения, бюджет. Честно говорим, сможем ли помочь или нет.' },
+      { n: '02', title: 'Твёрдое предложение', desc: 'Присылаем письменное предложение с рамками, результатами, сроками и ценой. Без скрытых расходов, без изменений позже.' },
+      { n: '03', title: 'Выполнение', desc: 'Еженедельные спринты с демо. Постоянная видимость прогресса. Можно ОСТАНОВИТЬ в любой момент.' },
+      { n: '04', title: 'Сдача и поддержка', desc: 'Передаём результаты, обучаем и сопровождаем после запуска в согласованный период.' },
+    ],
   },
   contact: {
     title: 'Контакты',
@@ -1792,6 +1953,82 @@ const en: Dict = {
         text:
           'The executive, the lawyer and the IT specialist each receive a conclusion in their language. No jargon just to look expert.',
       },
+    ],
+    departmentsTitle: 'The three departments',
+    departmentsLead:
+      'Each department has its own lead and its own set of responsibilities. Together they cover the entire project lifecycle — from assessment, through implementation, to delivery and support.',
+    departments: [
+      {
+        id: 'legal',
+        name: 'Legal department',
+        icon: 'shield',
+        desc: 'GDPR compliance, contracts, risk assessments, privacy policies, assistance in interactions with supervisory authorities.',
+        services: [
+          'Compliance audit under Law No. 195/2024',
+          'Privacy and cookie policies',
+          'Processing register',
+          'Data breach response procedure',
+          'DPO as a service',
+          'Preparation for authority inspection',
+        ],
+      },
+      {
+        id: 'it',
+        name: 'IT department',
+        icon: 'code',
+        desc: 'Web and mobile app development, technical integrations, security configurations, cloud infrastructure, long-term maintenance.',
+        services: [
+          'Cinematic websites and web apps',
+          'Mobile apps for iOS and Android',
+          'Headless CMS and e-commerce',
+          'Payment, CRM, third-party API integrations',
+          'Cookie consent mechanism implementation',
+          'Security: HTTPS, CSP, HSTS, hardening',
+        ],
+      },
+      {
+        id: 'pm',
+        name: 'Project Management department',
+        icon: 'compass',
+        desc: 'Planning, estimation, quality control, client communication, risk management, delivery within agreed deadlines.',
+        services: [
+          'Discovery and project scope definition',
+          'Sprint planning and realistic estimates',
+          'Weekly demos with the client',
+          'Quality assurance (QA) and deliverable review',
+          'Proactive communication and transparent reporting',
+          'Post-launch support and maintenance',
+        ],
+      },
+    ],
+    valuesTitle: 'Our values',
+    valuesLead:
+      'Three convictions that guide us in every project — whether it is a one-day GDPR audit or a six-month mobile app.',
+    values: [
+      {
+        title: 'Evidence, not opinions',
+        text: 'Every conclusion is based on collected evidence: screenshots, request lists, code snippets. Nothing stays at the “I think...” level.',
+      },
+      {
+        title: 'Clarity on three levels',
+        text: 'The executive receives a conclusion in their language, the lawyer — references to articles of law, IT — precise identifiers (URL, request, script).',
+      },
+      {
+        title: 'Plans we can deliver',
+        text: 'We do not promise unrealistic deadlines to win a project. We estimate honestly and communicate openly when delays arise.',
+      },
+      {
+        title: 'Strict confidentiality',
+        text: 'NDA with every client, no public logos, data segregated by project, deletion at the end of the collaboration.',
+      },
+    ],
+    processTitle: 'How we work with a new client',
+    processLead: 'Four steps from first contact to delivery. No surprises, no hidden costs.',
+    processSteps: [
+      { n: '01', title: 'Initial conversation', desc: '30–60 minutes. We understand objectives, constraints, budget. We honestly tell you whether we can help or not.' },
+      { n: '02', title: 'Firm proposal', desc: 'We send a written proposal with scope, deliverables, deadlines and price. No hidden costs, no later changes.' },
+      { n: '03', title: 'Execution', desc: 'Weekly sprints with demos. You have constant visibility on progress. You can STOP at any time.' },
+      { n: '04', title: 'Delivery and support', desc: 'We hand over the deliverables, provide training and post-launch support for the agreed period.' },
     ],
   },
   contact: {
