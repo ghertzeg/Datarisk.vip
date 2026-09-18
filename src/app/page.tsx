@@ -11,9 +11,7 @@ import { Services } from '@/components/sections/services'
 import { Studio } from '@/components/sections/studio'
 import { Methodology } from '@/components/sections/methodology'
 import { Check } from '@/components/sections/check'
-import { Cases } from '@/components/sections/cases'
 import { Blog } from '@/components/sections/blog'
-import { Templates } from '@/components/sections/templates'
 import { About } from '@/components/sections/about'
 import { Contact } from '@/components/sections/contact'
 import { Faq } from '@/components/sections/faq'
@@ -49,9 +47,7 @@ export default function Home() {
             {view === 'studio' && <Studio />}
             {view === 'methodology' && <Methodology />}
             {view === 'check' && <Check />}
-            {view === 'cases' && <Cases />}
             {view === 'blog' && <Blog />}
-            {view === 'templates' && <Templates />}
             {view === 'about' && <About />}
             {view === 'contact' && <Contact />}
             {view === 'faq' && <Faq />}

@@ -103,19 +103,6 @@ type Dict = {
       success: string
     }
   }
-  cases: {
-    title: string
-    lead: string
-    items: {
-      id: string
-      title: string
-      context: string
-      finding: string
-      fix: string
-      severity: 'ok' | 'warn' | 'bad'
-      severityLabel: string
-    }[]
-  }
   blog: {
     title: string
     lead: string
@@ -129,18 +116,6 @@ type Dict = {
       category: string
       body: string
     }[]
-  }
-  templates: {
-    title: string
-    lead: string
-    items: {
-      slug: string
-      title: string
-      desc: string
-      format: string
-    }[]
-    gate: string
-    gateDesc: string
   }
   about: {
     title: string
@@ -243,9 +218,7 @@ const ro: Dict = {
     studio: 'Studio',
     methodology: 'Metodologie',
     check: 'Verificare',
-    cases: 'Cazuri',
     blog: 'Cunoștințe',
-    templates: 'Șabloane',
     about: 'Despre noi',
     contact: 'Contacte',
     faq: 'Întrebări',
@@ -303,7 +276,7 @@ const ro: Dict = {
           'Trecem prin site ca un vizitator real, în profil curat, fără stări salvate. Capturăm cererile de rețea, comparăm conținutul politicilor cu fluxul real și formulăm concluzii doar pe dovezi colectate.',
         result:
           'Raport cu dovezi (capture de ecran, listă de cereri, fragmente de cod), listă de abateri cu trimiteri la articolele legii și plan de remediere cu prioritate.',
-        duration: '5–7 zile lucrătoare',
+        duration: '1 zi lucrătoare',
       },
       {
         slug: 'org-assessment',
@@ -316,7 +289,7 @@ const ro: Dict = {
           'Interviuri cu persoanele-cheie, revizuirea documentelor, compararea cu cerințele legii. Identificăm golurile și le clasăm după gravitate și probabilitate.',
         result:
           'Raport de evaluare + registru al golurilor constatate, cu recomandări și termene realiste.',
-        duration: '2–4 săptămâni',
+        duration: 'Individual, în funcție de complexitate',
       },
       {
         slug: 'documents-pack',
@@ -329,7 +302,7 @@ const ro: Dict = {
           'Pornim de la activitatea reală a clientului, nu de la un șablon generic. Fiecare document conține lista reală de prelucrări, destinatarii și temeiurile legale.',
         result:
           'Set de documente personalizat, gata pentru adoptare internă, cu instrucțiuni de utilizare.',
-        duration: '1–2 săptămâni',
+        duration: 'Individual, în funcție de complexitate',
       },
       {
         slug: 'cookie-consent',
@@ -342,7 +315,7 @@ const ro: Dict = {
           'Configurăm modul de consimțământ (consent mode), verificăm că trackerele nu se încarcă înainte de consimțământ și că retragerea este la un singur clic.',
         result:
           'Contur funcțional cu verificare în profil curat; instrucțiuni pentru întreținere.',
-        duration: '3–5 zile lucrătoare',
+        duration: 'Individual, în funcție de complexitate',
       },
       {
         slug: 'dpo-service',
@@ -355,7 +328,7 @@ const ro: Dict = {
           'Lucrăm ca parte internă: consultanță, revizuirea documentelor, răspuns la cererile subiecților, interacțiunea cu autoritatea.',
         result:
           'Îndeplinirea obligațiilor de operator cu un punct de contact clar și termene de răspuns.',
-        duration: 'Abonament lunar',
+        duration: 'Individual, în funcție de pregătirea clientului',
       },
       {
         slug: 'inspection-prep',
@@ -368,7 +341,7 @@ const ro: Dict = {
           'Pornim de la un scenariu realist, parcurgem etapele și identificăm punctele slabe înainte de controlul efectiv.',
         result:
           'Mapă cu dovezi pregătite, răspunsuri formulate și o persoană de contact clară.',
-        duration: '1–2 săptămâni',
+        duration: 'Individual, în funcție de pregătirea clientului',
       },
       {
         slug: 'training',
@@ -440,7 +413,7 @@ const ro: Dict = {
       { value: 'de la 150€', label: 'Preț de pornire' },
       { value: '3 departe', label: 'Juridic · IT · PM' },
       { value: '99.5%', label: 'Uptime garantat' },
-      { value: '30 zile', label: 'Pentru primul demo' },
+      { value: '3 zile', label: 'Pentru primul demo' },
     ],
     ctaTitle: 'Ai un proiect în minte?',
     ctaText: 'Discutăm despre obiective, constrângeri și buget. Prețurile pornesc de la 150€ și se adaptează cerințelor.',
@@ -508,63 +481,8 @@ const ro: Dict = {
         'Sunt de acord ca datele mele să fie prelucrate pentru a primi o notă de verificare. Am citit politica de confidențialitate.',
       privacy: 'Vezi politica de confidențialitate',
       success:
-        'Solicitarea a fost primită. Vom reveni cu o notă de verificare în 2 zile lucrătoare.',
+        'Solicitarea a fost primită. Vom reveni cu o notă de verificare în 1 zi lucrătoare.',
     },
-  },
-  cases: {
-    title: 'Cazuri și exemple',
-    lead:
-      'Exemple anonimizate de constatări reale. Fără nume de clienți, fără logo-uri inventate. Doar tipare de probleme pe care le-am văzut.',
-    items: [
-      {
-        id: 'C-001',
-        title: 'Script publicitar încărcat înainte de consimțământ',
-        context:
-          'Site de prezent, sector retail, fără vânzări online. Vizitator nou, profil curat.',
-        finding:
-          'Înainte de a afișa bannerul de consimțământ, browserul a făcut 7 cereri către 3 servicii terțe (publicitate, analiză, chat).',
-        fix:
-          'Am mutat inițializarea scripturilor după evenimentul de consimțământ. Am adăugat o verificare automată înainte de fiecare lansare.',
-        severity: 'bad',
-        severityLabel: 'Abatere',
-      },
-      {
-        id: 'C-002',
-        title: 'Politica de confidențialitate trimite la un act abrogat',
-        context:
-          'Companie prestatoare de servicii, bază de clienți în creștere.',
-        finding:
-          'Secțiunea „Baza legală” trimitea la Legea nr. 133/2011, fără să menționeze Legea nr. 195/2024 intrată în vigoare.',
-        fix:
-          'Am actualizat referințele la legislația în vigoare. Am adăugat data ultimei revizii la fiecare politică.',
-        severity: 'warn',
-        severityLabel: 'Atenționare',
-      },
-      {
-        id: 'C-003',
-        title: 'Câmp de telefon cu temei legal neclar',
-        context:
-          'Formular de contact, sector B2B.',
-        finding:
-          'Câmpul de telefon era obligatoriu, dar politica nu preciza temeiul legal și durata de stocare.',
-        fix:
-          'Am făcut câmpul opțional, am adăugat paragraful de temei legal (interes legitim) și am definit o durată de stocare.',
-        severity: 'warn',
-        severityLabel: 'Atenționare',
-      },
-      {
-        id: 'C-004',
-        title: 'Header HTTP lipsă (HSTS)',
-        context:
-          'Site de magazin online.',
-        finding:
-          'Site-ul nu seta header-ul Strict-Transport-Security, permițând downgrade la HTTP.',
-        fix:
-          'Am adăugat HSTS în configurația serverului, cu o durată de 6 luni, plus includeSubdomains.',
-        severity: 'ok',
-        severityLabel: 'Rezolvat',
-      },
-    ],
   },
   blog: {
     title: 'Cunoștințe',
@@ -624,44 +542,6 @@ const ro: Dict = {
           'Legea nr. 195/2024 prevede notificarea autorității în 72 de ore de la constatarea scurgerii. Acest articol arată pașii concreți: cine decide, ce documentezi, cum comunici cu subiecții afectați.',
       },
     ],
-  },
-  templates: {
-    title: 'Documente și șabloane',
-    lead:
-      'Pentru a descărca un șablon, vă rugăm să confirmați adresa de e-mail. Vom trimite documentul pe e-mail și vă vom putea recontacta — doar dacă vă dați acordul.',
-    items: [
-      {
-        slug: 'privacy-policy',
-        title: 'Model de politică de confidențialitate',
-        desc:
-          'Structură de pornire, cu secțiunile obligatorii conform art. 13 din Legea nr. 195/2024.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'cookie-policy',
-        title: 'Model de politică cookie',
-        desc:
-          'Tabel de categorii de cookie-uri și durata de stocare. Completați cu datele reale.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'processing-register',
-        title: 'Registru al prelucrărilor',
-        desc:
-          'Șablon de registru cu coloanele necesare: scop, categorii de date, destinatari, durată.',
-        format: 'XLSX',
-      },
-      {
-        slug: 'breach-procedure',
-        title: 'Procedură de reacție la scurgere',
-        desc:
-          'Pași în primele 72 de ore, cine decide, ce documentează, cum comunică.',
-        format: 'DOCX',
-      },
-    ],
-    gate: 'Confirmați e-mailul pentru a primi documentul',
-    gateDesc:
-      'Vă trimitem un mesaj de confirmare pe e-mail. După confirmare, veți primi link-ul de descărcare. Vă puteți dezabona oricând.',
   },
   about: {
     title: 'Despre noi',
@@ -748,7 +628,7 @@ const ro: Dict = {
       },
       {
         q: 'Cât durează?',
-        a: 'Evaluarea site-ului: 5–7 zile. Evaluarea organizației: 2–4 săptămâni. Pachetul de documente: 1–2 săptămâni. Pregătirea pentru control: 1–2 săptămâni.',
+        a: 'Evaluarea site-ului: 1 zi lucrătoare. Restul serviciilor — individual, în funcție de pregătirea clientului pentru a furniza datele necesare. Demourile sunt gata în 3 zile. Documentele și analizele se evaluează individual.',
       },
       {
         q: 'Avem deja o politică de confidențialitate. Ne ajută?',
@@ -863,7 +743,7 @@ const ro: Dict = {
         },
         {
           h: '4. Proprietatea intelectuală',
-          p: 'Conținutul site-ului este proprietatea DATARISK MOLDOVA. Șabloanele oferite prin paginile de descărcare pot fi modificate și folosite de clientul care le-a primit.',
+          p: 'Conținutul site-ului este proprietatea DATARISK MOLDOVA SRL. Nicio parte a site-ului nu poate fi reprodusă fără acordul scris al titularului drepturilor.',
         },
         {
           h: '5. Legea aplicabilă',
@@ -949,9 +829,7 @@ const ru: Dict = {
     studio: 'Студия',
     methodology: 'Методология',
     check: 'Проверка',
-    cases: 'Кейсы',
     blog: 'Знания',
-    templates: 'Шаблоны',
     about: 'О нас',
     contact: 'Контакты',
     faq: 'FAQ',
@@ -1009,7 +887,7 @@ const ru: Dict = {
           'Проходим сайт как реальный посетитель — в чистом профиле, без сохранённых состояний. Фиксируем сетевые запросы, сравниваем содержание политик с реальным потоком и формулируем выводы только на собранных доказательствах.',
         result:
           'Отчёт с доказательствами (скриншоты, список запросов, фрагменты кода), список отклонений со ссылками на статьи закона и план исправления с приоритетом.',
-        duration: '5–7 рабочих дней',
+        duration: '1 рабочий день',
       },
       {
         slug: 'org-assessment',
@@ -1022,7 +900,7 @@ const ru: Dict = {
           'Интервью с ключевыми лицами, проверка документов, сравнение с требованиями закона. Выявляем пробелы и ранжируем их по тяжести и вероятности.',
         result:
           'Отчёт об оценке + перечень пробелов с рекомендациями и реалистичными сроками.',
-        duration: '2–4 недели',
+        duration: 'Индивидуально, в зависимости от сложности',
       },
       {
         slug: 'documents-pack',
@@ -1035,7 +913,7 @@ const ru: Dict = {
           'Отталкиваемся от реальной деятельности клиента, а не от шаблона. Каждый документ содержит реальный перечень обработок, получателей и правовые основания.',
         result:
           'Персонализированный комплект документов, готовый к внутреннему принятию, с инструкциями по использованию.',
-        duration: '1–2 недели',
+        duration: 'Индивидуально, в зависимости от сложности',
       },
       {
         slug: 'cookie-consent',
@@ -1048,7 +926,7 @@ const ru: Dict = {
           'Настраиваем режим согласия (consent mode), проверяем, что трекеры не загружаются до согласия и что отзыв доступен в один клик.',
         result:
           'Работающий контур с проверкой в чистом профиле; инструкции по сопровождению.',
-        duration: '3–5 рабочих дней',
+        duration: 'Индивидуально, в зависимости от сложности',
       },
       {
         slug: 'dpo-service',
@@ -1061,7 +939,7 @@ const ru: Dict = {
           'Работаем как внутренняя сторона: консультации, проверка документов, ответ на запросы субъектов, взаимодействие с надзорным органом.',
         result:
           'Исполнение обязанностей оператора с ясной точкой контакта и сроками ответа.',
-        duration: 'Ежемесячная подписка',
+        duration: 'Индивидуально, в зависимости от готовности клиента',
       },
       {
         slug: 'inspection-prep',
@@ -1074,7 +952,7 @@ const ru: Dict = {
           'Отталкиваемся от реалистичного сценария, проходим этапы и выявляем слабые места до фактической проверки.',
         result:
           'Папка с готовыми доказательствами, сформулированные ответы и ясное контактное лицо.',
-        duration: '1–2 недели',
+        duration: 'Индивидуально, в зависимости от готовности клиента',
       },
       {
         slug: 'training',
@@ -1146,7 +1024,7 @@ const ru: Dict = {
       { value: 'от 150€', label: 'Стартовая цена' },
       { value: '3 отдела', label: 'Юр · IT · PM' },
       { value: '99.5%', label: 'Гарантированный uptime' },
-      { value: '30 дней', label: 'До первого демо' },
+      { value: '3 дня', label: 'До первого демо' },
     ],
     ctaTitle: 'Есть проект на примете?',
     ctaText: 'Обсудим цели, ограничения и бюджет. Цены начинаются от 150€ и адаптируются под требования.',
@@ -1214,63 +1092,8 @@ const ru: Dict = {
         'Я согласен на обработку моих данных, чтобы получить заметку с проверкой. Я прочитал политику конфиденциальности.',
       privacy: 'Смотреть политику конфиденциальности',
       success:
-        'Заявка получена. Вернёмся с заметкой о проверке в течение 2 рабочих дней.',
+        'Заявка получена. Вернёмся с заметкой о проверке в течение 1 рабочего дня.',
     },
-  },
-  cases: {
-    title: 'Кейсы и примеры',
-    lead:
-      'Анонимизированные примеры реальных находок. Без имён клиентов, без выдуманных логотипов. Только типовые проблемы, которые мы видели.',
-    items: [
-      {
-        id: 'C-001',
-        title: 'Рекламный скрипт, загруженный до согласия',
-        context:
-          'Сайт-визитка, сектор розницы, без онлайн-продаж. Новый посетитель, чистый профиль.',
-        finding:
-          'До показа баннера согласия браузер сделал 7 запросов к 3 сторонним сервисам (реклама, аналитика, чат).',
-        fix:
-          'Перенесли инициализацию скриптов после события согласия. Добавили автоматическую проверку перед каждым запуском.',
-        severity: 'bad',
-        severityLabel: 'Отклонение',
-      },
-      {
-        id: 'C-002',
-        title: 'Политика конфиденциальности ссылается на отменённый акт',
-        context:
-          'Сфера услуг, растущая база клиентов.',
-        finding:
-          'Раздел «Правовое основание» ссылался на Закон № 133/2011 без упоминания вступившего в силу Закона № 195/2024.',
-        fix:
-          'Обновили ссылки на действующее законодательство. Добавили дату последней ревизии в каждую политику.',
-        severity: 'warn',
-        severityLabel: 'Предупреждение',
-      },
-      {
-        id: 'C-003',
-        title: 'Поле телефона с неясным правовым основанием',
-        context:
-          'Форма обратной связи, сектор B2B.',
-        finding:
-          'Поле телефона было обязательным, но политика не уточняла правовое основание и срок хранения.',
-        fix:
-          'Сделали поле необязательным, добавили параграф о правовом основании (законный интерес) и определили срок хранения.',
-        severity: 'warn',
-        severityLabel: 'Предупреждение',
-      },
-      {
-        id: 'C-004',
-        title: 'Отсутствует HTTP-заголовок HSTS',
-        context:
-          'Сайт интернет-магазина.',
-        finding:
-          'Сайт не устанавливал заголовок Strict-Transport-Security, допуская downgrade до HTTP.',
-        fix:
-          'Добавили HSTS в конфигурацию сервера со сроком 6 месяцев и includeSubdomains.',
-        severity: 'ok',
-        severityLabel: 'Решено',
-      },
-    ],
   },
   blog: {
     title: 'Знания',
@@ -1330,44 +1153,6 @@ const ru: Dict = {
           'Закон № 195/2024 предусматривает уведомление надзорного органа в течение 72 часов с момента обнаружения утечки. Эта статья показывает конкретные шаги: кто принимает решение, что фиксировать, как общаться с затронутыми субъектами.',
       },
     ],
-  },
-  templates: {
-    title: 'Документы и шаблоны',
-    lead:
-      'Чтобы скачать шаблон, подтвердите адрес e-mail. Мы пришлём документ на почту и сможем связаться с вами повторно — только если вы согласны.',
-    items: [
-      {
-        slug: 'privacy-policy',
-        title: 'Образец политики конфиденциальности',
-        desc:
-          'Стартовая структура с обязательными разделами по ст. 13 Закона № 195/2024.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'cookie-policy',
-        title: 'Образец политики cookie',
-        desc:
-          'Таблица категорий cookie и сроков хранения. Заполните реальными данными.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'processing-register',
-        title: 'Реестр обработок',
-        desc:
-          'Шаблон реестра с нужными колонками: цель, категории данных, получатели, срок.',
-        format: 'XLSX',
-      },
-      {
-        slug: 'breach-procedure',
-        title: 'Процедура реагирования на утечку',
-        desc:
-          'Шаги в первые 72 часа, кто принимает решение, что фиксирует, как общается.',
-        format: 'DOCX',
-      },
-    ],
-    gate: 'Подтвердите e-mail, чтобы получить документ',
-    gateDesc:
-      'Мы пришлём подтверждение на e-mail. После подтверждения вы получите ссылку для скачивания. Можно отписаться в любой момент.',
   },
   about: {
     title: 'О нас',
@@ -1454,7 +1239,7 @@ const ru: Dict = {
       },
       {
         q: 'Сколько длится?',
-        a: 'Оценка сайта: 5–7 дней. Оценка организации: 2–4 недели. Пакет документов: 1–2 недели. Подготовка к проверке: 1–2 недели.',
+        a: 'Оценка сайта: 1 рабочий день. Остальные услуги — индивидуально, в зависимости от готовности клиента предоставить нужные данные. Демо-версии готовы за 3 дня. Документы и анализы рассматриваются индивидуально.',
       },
       {
         q: 'У нас уже есть политика конфиденциальности. Это поможет?',
@@ -1569,7 +1354,7 @@ const ru: Dict = {
         },
         {
           h: '4. Интеллектуальная собственность',
-          p: 'Содержание сайта — собственность DATARISK MOLDOVA. Шаблоны, выдаваемые на страницах загрузки, могут быть изменены и использованы клиентом, который их получил.',
+          p: 'Содержание сайта — собственность DATARISK MOLDOVA SRL. Никакая часть сайта не может быть воспроизведена без письменного согласия правообладателя.',
         },
         {
           h: '5. Применимое право',
@@ -1655,9 +1440,7 @@ const en: Dict = {
     studio: 'Studio',
     methodology: 'Methodology',
     check: 'Check',
-    cases: 'Cases',
     blog: 'Knowledge',
-    templates: 'Templates',
     about: 'About',
     contact: 'Contact',
     faq: 'FAQ',
@@ -1715,7 +1498,7 @@ const en: Dict = {
           'We walk the site as a real visitor — in a clean profile, with no saved state. We capture network requests, compare policy contents with the actual flow, and formulate conclusions only on the evidence collected.',
         result:
           'A report with evidence (screenshots, list of requests, code snippets), a list of non-conformities with references to the law, and a prioritised remediation plan.',
-        duration: '5–7 business days',
+        duration: '1 business day',
       },
       {
         slug: 'org-assessment',
@@ -1728,7 +1511,7 @@ const en: Dict = {
           'Interviews with key people, document review, comparison with legal requirements. We identify gaps and rank them by severity and likelihood.',
         result:
           'Assessment report + register of identified gaps, with recommendations and realistic deadlines.',
-        duration: '2–4 weeks',
+        duration: 'Individual, depending on complexity',
       },
       {
         slug: 'documents-pack',
@@ -1741,7 +1524,7 @@ const en: Dict = {
           'We start from the client’s actual activity, not from a generic template. Each document contains the actual list of processing operations, recipients and legal bases.',
         result:
           'A personalised document set, ready for internal adoption, with usage instructions.',
-        duration: '1–2 weeks',
+        duration: 'Individual, depending on complexity',
       },
       {
         slug: 'cookie-consent',
@@ -1754,7 +1537,7 @@ const en: Dict = {
           'We configure consent mode, verify that trackers do not load before consent and that withdrawal is one click away.',
         result:
           'A working framework verified in a clean profile; maintenance instructions.',
-        duration: '3–5 business days',
+        duration: 'Individual, depending on complexity',
       },
       {
         slug: 'dpo-service',
@@ -1767,7 +1550,7 @@ const en: Dict = {
           'We act as an internal party: advisory, document review, response to subject requests, interaction with the supervisory authority.',
         result:
           'Fulfilment of controller obligations with a clear point of contact and response deadlines.',
-        duration: 'Monthly subscription',
+        duration: 'Individual, depending on client readiness',
       },
       {
         slug: 'inspection-prep',
@@ -1780,7 +1563,7 @@ const en: Dict = {
           'We start from a realistic scenario, walk through the stages and identify weak points before the actual inspection.',
         result:
           'A folder with prepared evidence, formulated responses and a clear point of contact.',
-        duration: '1–2 weeks',
+        duration: 'Individual, depending on client readiness',
       },
       {
         slug: 'training',
@@ -1852,7 +1635,7 @@ const en: Dict = {
       { value: 'from 150€', label: 'Starting price' },
       { value: '3 depts', label: 'Legal · IT · PM' },
       { value: '99.5%', label: 'Guaranteed uptime' },
-      { value: '30 days', label: 'To first demo' },
+      { value: '3 days', label: 'To first demo' },
     ],
     ctaTitle: 'Got a project in mind?',
     ctaText: 'We discuss goals, constraints and budget. Prices start from 150€ and adapt to requirements.',
@@ -1920,63 +1703,8 @@ const en: Dict = {
         'I agree that my data may be processed in order to receive the check note. I have read the privacy policy.',
       privacy: 'View privacy policy',
       success:
-        'Request received. We will get back with a check note within 2 business days.',
+        'Request received. We will get back with a check note within 1 business day.',
     },
-  },
-  cases: {
-    title: 'Cases and examples',
-    lead:
-      'Anonymised examples of real findings. No client names, no invented logos. Only patterns of issues we have seen.',
-    items: [
-      {
-        id: 'C-001',
-        title: 'Ad script loaded before consent',
-        context:
-          'Brochure site, retail sector, no online sales. New visitor, clean profile.',
-        finding:
-          'Before the consent banner was shown, the browser made 7 requests to 3 third-party services (advertising, analytics, chat).',
-        fix:
-          'We moved the script initialisation after the consent event. We added an automatic check before each launch.',
-        severity: 'bad',
-        severityLabel: 'Non-conformity',
-      },
-      {
-        id: 'C-002',
-        title: 'Privacy policy links to a repealed act',
-        context:
-          'Services company, growing customer base.',
-        finding:
-          'The “Legal basis” section referred to Law No. 133/2011 without mentioning Law No. 195/2024 in force.',
-        fix:
-          'We updated references to current legislation. We added the date of last revision to each policy.',
-        severity: 'warn',
-        severityLabel: 'Warning',
-      },
-      {
-        id: 'C-003',
-        title: 'Phone field with unclear legal basis',
-        context:
-          'Contact form, B2B sector.',
-        finding:
-          'The phone field was mandatory, but the policy did not specify the legal basis or retention period.',
-        fix:
-          'We made the field optional, added a paragraph on legal basis (legitimate interest) and defined a retention period.',
-        severity: 'warn',
-        severityLabel: 'Warning',
-      },
-      {
-        id: 'C-004',
-        title: 'Missing HTTP header (HSTS)',
-        context:
-          'Online shop site.',
-        finding:
-          'The site did not set the Strict-Transport-Security header, allowing downgrade to HTTP.',
-        fix:
-          'We added HSTS to the server configuration with a 6-month duration and includeSubdomains.',
-        severity: 'ok',
-        severityLabel: 'Resolved',
-      },
-    ],
   },
   blog: {
     title: 'Knowledge',
@@ -2036,44 +1764,6 @@ const en: Dict = {
           'Law No. 195/2024 requires notification of the supervisory authority within 72 hours of detecting a breach. This article shows the concrete steps: who decides, what you document, how you communicate with affected subjects.',
       },
     ],
-  },
-  templates: {
-    title: 'Documents and templates',
-    lead:
-      'To download a template, please confirm your e-mail address. We will send the document by e-mail and may contact you again — only if you opt in.',
-    items: [
-      {
-        slug: 'privacy-policy',
-        title: 'Sample privacy policy',
-        desc:
-          'Starting structure with the mandatory sections under Article 13 of Law No. 195/2024.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'cookie-policy',
-        title: 'Sample cookie policy',
-        desc:
-          'Table of cookie categories and retention. Fill in with real data.',
-        format: 'DOCX',
-      },
-      {
-        slug: 'processing-register',
-        title: 'Processing register',
-        desc:
-          'Register template with the necessary columns: purpose, data categories, recipients, retention.',
-        format: 'XLSX',
-      },
-      {
-        slug: 'breach-procedure',
-        title: 'Breach response procedure',
-        desc:
-          'Steps in the first 72 hours, who decides, what to document, how to communicate.',
-        format: 'DOCX',
-      },
-    ],
-    gate: 'Confirm your e-mail to receive the document',
-    gateDesc:
-      'We will send a confirmation e-mail. After confirmation, you will receive the download link. You can unsubscribe at any time.',
   },
   about: {
     title: 'About us',
@@ -2160,7 +1850,7 @@ const en: Dict = {
       },
       {
         q: 'How long does it take?',
-        a: 'Site assessment: 5–7 days. Organisation assessment: 2–4 weeks. Documents package: 1–2 weeks. Inspection preparation: 1–2 weeks.',
+        a: 'Site assessment: 1 business day. Other services — individual, depending on the client’s readiness to provide the necessary data. Demos are ready in 3 days. Documents and analyses are evaluated individually.',
       },
       {
         q: 'We already have a privacy policy. Does it help?',
@@ -2275,7 +1965,7 @@ const en: Dict = {
         },
         {
           h: '4. Intellectual property',
-          p: 'The content of the site is the property of DATARISK MOLDOVA. Templates provided on the download pages may be modified and used by the client who received them.',
+          p: 'The content of the site is the property of DATARISK MOLDOVA SRL. No part of the site may be reproduced without the written consent of the rights holder.',
         },
         {
           h: '5. Applicable law',

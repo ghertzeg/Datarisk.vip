@@ -42,6 +42,7 @@ const L = {
     whatWeDo: 'Ce facem',
     whatYouGet: 'Ce primești',
     duration: 'Durată',
+    durationValue: '1 zi',
     pricing: 'Preț',
     from: 'de la',
     cta: 'Solicită o propunere',
@@ -75,7 +76,7 @@ const L = {
       },
       {
         q: 'Cât durează?',
-        a: 'Auditele tipice durează între 5–7 zile pentru site-uri și 2–4 săptămâni pentru organizații.',
+        a: 'Evaluarea site-ului: 1 zi lucrătoare. Restul serviciilor — individual, în funcție de pregătirea clientului. Demourile sunt gata în 3 zile. Documentele și analizele se evaluează individual.',
       },
       {
         q: 'Suntem o agenție de certificare?',
@@ -96,6 +97,7 @@ const L = {
     whatWeDo: 'Что мы делаем',
     whatYouGet: 'Что вы получаете',
     duration: 'Срок',
+    durationValue: '1 день',
     pricing: 'Цена',
     from: 'от',
     cta: 'Запросить предложение',
@@ -129,7 +131,7 @@ const L = {
       },
       {
         q: 'Сколько длится?',
-        a: 'Типовые аудиты занимают от 5–7 дней для сайтов и 2–4 недели для организаций.',
+        a: 'Оценка сайта: 1 рабочий день. Остальные услуги — индивидуально, в зависимости от готовности клиента. Демо-версии готовы за 3 дня. Документы и анализы рассматриваются индивидуально.',
       },
       {
         q: 'Вы сертифицирующая компания?',
@@ -150,6 +152,7 @@ const L = {
     whatWeDo: 'What we do',
     whatYouGet: 'What you get',
     duration: 'Duration',
+    durationValue: '1 day',
     pricing: 'Price',
     from: 'from',
     cta: 'Request a proposal',
@@ -183,7 +186,7 @@ const L = {
       },
       {
         q: 'How long does it take?',
-        a: 'Typical audits take 5–7 days for websites and 2–4 weeks for organisations.',
+        a: 'Site assessment: 1 business day. Other services — individual, depending on client readiness. Demos are ready in 3 days. Documents and analyses are evaluated individually.',
       },
       {
         q: 'Are you a certification body?',
@@ -311,7 +314,7 @@ export function SeoLanding({
             </span>
             <span className="size-1 rounded-full bg-muted-foreground/30" />
             <span className="text-xs text-muted-foreground">
-              {t.duration}: <span className="text-foreground font-semibold">5–7 zile</span>
+              {t.duration}: <span className="text-foreground font-semibold">{t.durationValue}</span>
             </span>
           </div>
         </motion.div>
