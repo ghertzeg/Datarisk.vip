@@ -8,6 +8,7 @@ export type Lang = 'ro' | 'ru' | 'en'
 export type ViewKey =
   | 'home'
   | 'services'
+  | 'studio'
   | 'methodology'
   | 'check'
   | 'cases'

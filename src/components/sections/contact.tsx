@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { CheckCircle2, Mail, Clock, MapPin, Shield } from 'lucide-react'
+import { CheckCircle2, Mail, Phone, Clock, MapPin, Shield } from 'lucide-react'
 
 export function Contact() {
   const t = useDict()
@@ -183,6 +183,11 @@ export function Contact() {
               {t.footer.contactTitle}
             </h3>
             <ul className="space-y-4 text-sm">
+              <InfoRow icon={<Phone className="size-4" />} label={t.contact.info.phoneLabel}>
+                <a href="tel:+37378962932" className="hover:text-brand">
+                  {t.contact.info.phone}
+                </a>
+              </InfoRow>
               <InfoRow icon={<Mail className="size-4" />} label={t.contact.info.emailLabel}>
                 <a href="mailto:hello@datarisk.md" className="hover:text-brand">
                   hello@datarisk.md
@@ -200,6 +205,15 @@ export function Contact() {
                 {t.contact.info.address}
               </InfoRow>
             </ul>
+
+            <div className="hairline mt-5 pt-4">
+              <p className="text-[10px] font-mono text-muted-foreground leading-relaxed">
+                DATARISK MOLDOVA SRL<br />
+                IDNO: 1026023020925<br />
+                IBAN: MD47AG000000022597426741<br />
+                BC MAIB SA · SWIFT: AGRNMD2X
+              </p>
+            </div>
           </div>
 
           <div className="panel p-5 border-l-4 border-l-brand bg-accent/30">

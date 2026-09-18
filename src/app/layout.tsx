@@ -16,28 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DATARISK MOLDOVA — Evaluarea conformității cu Legea nr. 195/2024",
+  title: "DATARISK MOLDOVA SRL — Cinematic studio · GDPR · Web · Apps",
   description:
-    "Servicii de evaluare a conformității în domeniul protecției datelor cu caracter personal (Legea nr. 195/2024 a Republicii Moldova). Audit, documente, asistență.",
+    "Studio digital cinematic. Conformitate GDPR (Legea nr. 195/2024), dezvoltare web și aplicații mobile. Chișinău, Republica Moldova.",
   keywords: [
-    "protecția datelor",
-    "date cu caracter personal",
+    "GDPR Moldova",
     "Legea 195/2024",
-    "conformitate",
+    "web development",
+    "mobile apps",
+    "Next.js",
+    "compliance",
     "audit",
     "DPO",
-    "Moldova",
-    "GDPR Moldova",
+    "DATARISK",
   ],
-  authors: [{ name: "DATARISK MOLDOVA" }],
+  authors: [{ name: "DATARISK MOLDOVA SRL" }],
   icons: {
     icon: "/logo.svg",
   },
   openGraph: {
-    title: "DATARISK MOLDOVA — Evaluare a conformității",
+    title: "DATARISK MOLDOVA SRL — Cinematic digital studio",
     description:
-      "Arătăm ce este demonstrat și nu numim încălcare ceea ce nu este demonstrat.",
-    siteName: "DATARISK MOLDOVA",
+      "GDPR compliance, web development and mobile apps — built with the same cinematic rigor.",
+    siteName: "DATARISK MOLDOVA SRL",
     type: "website",
     locale: "ro_MD",
   },
@@ -53,11 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro" suppressHydrationWarning>
+    <html lang="ro" className="dark" suppressHydrationWarning>
       <head>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0f1115" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
@@ -65,7 +65,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           <SiteStoreBootstrap />

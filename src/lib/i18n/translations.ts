@@ -44,6 +44,31 @@ type Dict = {
     }[]
     backToList: string
   }
+  studio: {
+    badge: string
+    title: string
+    lead: string
+    webTitle: string
+    webLead: string
+    webFeatures: { title: string; desc: string }[]
+    appsTitle: string
+    appsLead: string
+    appsFeatures: { title: string; desc: string }[]
+    processTitle: string
+    processLead: string
+    steps: { n: string; title: string; desc: string }[]
+    stackTitle: string
+    stackLead: string
+    capabilities: { title: string; desc: string }[]
+    ndaTitle: string
+    ndaLead: string
+    ndaItems: { title: string; desc: string }[]
+    statsTitle: string
+    stats: { value: string; label: string }[]
+    ctaTitle: string
+    ctaText: string
+    ctaButton: string
+  }
   methodology: {
     title: string
     lead: string
@@ -145,6 +170,7 @@ type Dict = {
     info: {
       emailLabel: string
       phoneLabel: string
+      phone: string
       hoursLabel: string
       hours: string
       addressLabel: string
@@ -207,15 +233,16 @@ type LegalPage = {
 // ============ Romanian (primary) ============
 const ro: Dict = {
   brand: {
-    name: 'DATARISK MOLDOVA',
-    tagline: 'Evaluarea conformității cu Legea nr. 195/2024',
-    country: 'Republica Moldova',
+    name: 'DATARISK',
+    tagline: 'Cinematic studio · Compliance · Web · Apps',
+    country: 'Republica Moldova · Legea 195/2024',
   },
   nav: {
     home: 'Acasă',
-    services: 'Servicii',
+    services: 'GDPR',
+    studio: 'Studio',
     methodology: 'Metodologie',
-    check: 'Verificare gratuită',
+    check: 'Verificare',
     cases: 'Cazuri',
     blog: 'Cunoștințe',
     templates: 'Șabloane',
@@ -224,19 +251,20 @@ const ro: Dict = {
     faq: 'Întrebări',
   },
   cta: {
-    checkSite: 'Verifică site-ul gratuit',
+    checkSite: 'Verifică site-ul',
     contactUs: 'Solicită consultanță',
     viewServices: 'Vezi serviciile',
     readMore: 'Citește mai mult',
+    startProject: 'Începe un proiect',
   },
   hero: {
-    badge: 'Legea nr. 195/2024 · Republica Moldova',
-    titleA: 'Arătăm ce este demonstrat.',
-    titleB: 'Nu numim încălcare ceea ce nu este demonstrat.',
+    badge: 'CINEMATIC STUDIO · COMPLIANCE · WEB · APPS',
+    titleA: ' Construim.',
+    titleB: 'Asigurăm conformitatea.',
     lead:
-      'Evaluăm conformitatea prelucrării datelor cu caracter personal — a site-ului, a documentelor și a proceselor. Fără să speriem, fără să promitem sancțiuni. Cu dovezi verificabile și un plan clar de remediere.',
-    primaryCta: 'Verificare gratuită a site-ului',
-    secondaryCta: 'Vezi serviciile',
+      'Studio digital cinematic. Construim site-uri, aplicații și sisteme de conformitate pe Legea nr. 195/2024 — cu aceeași rigurozitate vizuală și tehnică.',
+    primaryCta: 'Începe un proiect',
+    secondaryCta: 'Verifică un site gratuit',
     trustNote:
       'Acest site trece propria noastră verificare. Niciun script terț nu se execută până nu oferi consimțământ.',
   },
@@ -357,6 +385,66 @@ const ro: Dict = {
       },
     ],
     backToList: '← Înapoi la lista serviciilor',
+  },
+  studio: {
+    badge: 'STUDIO · WEB · APPS',
+    title: 'Construim produse digitale cinematice',
+    lead:
+      'Ca agenție de consultanță executivă, preluăm orice proiect pe care clientul îl poate imagina — atâta timp cât bugetul este realist. Lucrăm cu tehnologii moderne, fără să le enumerăm ca pe un CV.',
+    webTitle: 'Dezvoltare Web',
+    webLead:
+      'Site-uri, aplicații web, magazine online, portaluri corporative. De la broșură la SaaS — cu design cinematic și conformitate GDPR integrată.',
+    webFeatures: [
+      { title: 'Site-uri cinematice', desc: 'Design vizual puternic, animații fluide, tipografie atentă.' },
+      { title: 'Aplicații web', desc: 'Dashboard-uri, portaluri, SaaS — cu autentificare și roluri.' },
+      { title: 'E-commerce', desc: 'Magazine online rapide, integrări plăți și CRM.' },
+      { title: 'Headless CMS', desc: 'Conținut editabil fără developer, cu preview în timp real.' },
+    ],
+    appsTitle: 'Aplicații Mobile',
+    appsLead:
+      'Aplicații native și cross-platform pentru iOS și Android. O bază de cod, experiență nativă pe fiecare platformă.',
+    appsFeatures: [
+      { title: 'Cross-platform', desc: 'O singură bază de cod pentru iOS și Android.' },
+      { title: 'Offline-first', desc: 'Date locale sincronizate când reapare conexiunea.' },
+      { title: 'Notificări push', desc: 'Comunicare cu utilizatorii, segmentare, automatizări.' },
+      { title: 'Publicare', desc: 'Asistență completă pentru App Store și Google Play.' },
+    ],
+    processTitle: 'Procesul nostru',
+    processLead: 'Cinci etape clare. Fără surprize.',
+    steps: [
+      { n: '01', title: 'Descoperire', desc: 'Întelegem obiectivul, audiența, constrângerile. Definim domeniul.' },
+      { n: '02', title: 'Design', desc: 'Wireframes, prototype, design system. Aprobăm împreună.' },
+      { n: '03', title: 'Build', desc: 'Sprinturi săptămânale cu demo. Cod testat, review-uri regulate.' },
+      { n: '04', title: 'Compliance', desc: 'GDPR, cookie, formulare, politici — integrate, nu lipite.' },
+      { n: '05', title: 'Lansare', desc: 'Publicare, monitorizare, suport. Iterăm pe baza datelor reale.' },
+    ],
+    stackTitle: 'Capabilități tehnice',
+    stackLead: 'Nu enumerăm tehnologii ca pe un CV. Lucrăm cu stack-ul potrivit pentru fiecare proiect.',
+    capabilities: [
+      { title: 'Frontend modern', desc: 'Spa frameworks, SSR, animații, design systems.' },
+      { title: 'Backend solid', desc: 'API-uri, baze de date, autentificare, integrări terțe.' },
+      { title: 'Mobile', desc: 'Aplicații native și cross-platform pentru iOS și Android.' },
+      { title: 'Infrastructură', desc: 'Cloud, CI/CD, monitorizare, backup, securitate.' },
+    ],
+    ndaTitle: 'Confidențialitate strictă',
+    ndaLead:
+      'Nu publicăm nume de clienți, logo-uri sau detalii despre proiecte. Politica noastră de NDA este parte din contractul cu fiecare client.',
+    ndaItems: [
+      { title: 'NDA cu fiecare client', desc: 'Semnat la începutul colaborației, fără excepții.' },
+      { title: 'Fără logo-uri client', desc: 'Nu folosim identitatea clientului în marketing.' },
+      { title: 'Date segregate', desc: 'Acces la datele clientului doar pentru echipa de proiect.' },
+      { title: 'Ștergere la final', desc: 'La finalizarea colaborării, returnăm sau ștergem datele.' },
+    ],
+    statsTitle: 'Capacități',
+    stats: [
+      { value: 'de la 150€', label: 'Preț de pornire' },
+      { value: '3 departe', label: 'Juridic · IT · PM' },
+      { value: '99.5%', label: 'Uptime garantat' },
+      { value: '30 zile', label: 'Pentru primul demo' },
+    ],
+    ctaTitle: 'Ai un proiect în minte?',
+    ctaText: 'Discutăm despre obiective, constrângeri și buget. Prețurile pornesc de la 150€ și se adaptează cerințelor.',
+    ctaButton: 'Începe un proiect',
   },
   methodology: {
     title: 'Metodologie',
@@ -578,13 +666,13 @@ const ro: Dict = {
   about: {
     title: 'Despre noi',
     lead:
-      'Echipă cu experiență în protecția datelor, juridică și IT. Lucrăm cu organizații din Republica Moldova care au nevoie de o evaluare serioasă a conformității.',
+      'Agenție de consultanță executivă cu trei departamente: Juridic, IT și Project Management. Lucrăm cu organizații din Republica Moldova care au nevoie de evaluări serioase, implementări tehnice și asistență end-to-end.',
     body:
-      'Am pornit DATARISK MOLDOVA dintr-o observație simplă: organizațiile au nevoie de evaluări care arată exact ce se întâmplă, nu de rapoarte de marketing. Mulți clienți vin la noi după ce au primit o ofertă care promitea „certificare GDPR” sau „zero sancțiuni” — lucruri pe care nimeni nu le poate garanta. Noi lucrăm altfel: identificăm ce este demonstrat, formulăm concluzii pe înțelesul fiecărei persoane implicate și lăsăm clientul cu un plan pe care îl poate executa.',
+      'Am pornit DATARISK MOLDOVA ca agenție de consultanță executivă care preia orice proiect pe care clientul îl poate imagina — atâta timp cât bugetul și obiectivele sunt realiste. Structura noastră are trei departamente distincte: Juridic (conformitate, contracte, GDPR), IT (dezvoltare web, aplicații, integrări) și Project Management (planificare, livrare, controlul calității). Această separație ne permite să asigurăm că fiecare proiect este condus de specialiștii potriviți, fără să amestecăm rolurile și fără să promitem ce nu putem onora.',
     status: {
       title: 'Statutul nostru',
       text:
-        'Nu suntem o autoritate de supraveghere și nu emitem certificate de conformitate. Lucrăm ca evaluator extern, iar concluziile noastre au caracter de evaluare profesională.',
+        'Nu suntem o autoritate de supraveghere și nu emitem certificate de conformitate. Lucrăm ca agenție de consultanță executivă, iar concluziile noastre au caracter de evaluare profesională.',
     },
     principles: [
       {
@@ -638,10 +726,11 @@ const ro: Dict = {
     info: {
       emailLabel: 'E-mail',
       phoneLabel: 'Telefon',
+      phone: '+373 7896 2932',
       hoursLabel: 'Program',
       hours: 'Luni–Vineri, 9:00–18:00 (Chișinău)',
-      addressLabel: 'Adresa',
-      address: 'Chișinău, Republica Moldova',
+      addressLabel: 'Locație',
+      address: 'Ne deplasăm la sediul clientului — în întreaga Republică Moldova',
       dpoLabel: 'Responsabil cu protecția datelor',
       dpo: 'dpo@datarisk.md',
       responseLabel: 'Termen de răspuns',
@@ -681,7 +770,7 @@ const ro: Dict = {
   },
   footer: {
     about:
-      'DATARISK MOLDOVA — evaluarea conformității cu Legea nr. 195/2024 privind protecția datelor cu caracter personal.',
+      'DATARISK MOLDOVA SRL — studio digital cinematic. Conformitate GDPR, dezvoltare web și aplicații mobile. Legea nr. 195/2024.',
     navTitle: 'Navigare',
     legalTitle: 'Documente legale',
     contactTitle: 'Contact',
@@ -698,7 +787,7 @@ const ro: Dict = {
       sections: [
         {
           h: '1. Operatorul',
-          p: 'Operatorul datelor este DATARISK MOLDOVA, cu sediul în Chișinău, Republica Moldova. Persoana de contact: dpo@datarisk.md.',
+          p: 'Operatorul datelor este DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Persoana de contact: dpo@datarisk.md, +373 7896 2932.',
         },
         {
           h: '2. Datele colectate',
@@ -850,36 +939,38 @@ const ro: Dict = {
 // ============ Russian ============
 const ru: Dict = {
   brand: {
-    name: 'DATARISK MOLDOVA',
-    tagline: 'Оценка соответствия Закону № 195/2024',
-    country: 'Республика Молдова',
+    name: 'DATARISK',
+    tagline: 'Кинематографическая студия · Compliance · Web · Apps',
+    country: 'Республика Молдова · Закон № 195/2024',
   },
   nav: {
     home: 'Главная',
-    services: 'Услуги',
+    services: 'GDPR',
+    studio: 'Студия',
     methodology: 'Методология',
-    check: 'Бесплатная проверка',
+    check: 'Проверка',
     cases: 'Кейсы',
     blog: 'Знания',
     templates: 'Шаблоны',
     about: 'О нас',
     contact: 'Контакты',
-    faq: 'Вопросы',
+    faq: 'FAQ',
   },
   cta: {
-    checkSite: 'Проверить сайт бесплатно',
+    checkSite: 'Проверить сайт',
     contactUs: 'Запросить консультацию',
     viewServices: 'Смотреть услуги',
     readMore: 'Читать далее',
+    startProject: 'Начать проект',
   },
   hero: {
-    badge: 'Закон № 195/2024 · Республика Молдова',
-    titleA: 'Мы показываем, что именно доказано.',
-    titleB: 'Не называем нарушением то, что не доказано.',
+    badge: 'КИНЕМАТОГРАФИЧЕСКАЯ СТУДИЯ · COMPLIANCE · WEB · APPS',
+    titleA: ' Создаём.',
+    titleB: 'Обеспечиваем соответствие.',
     lead:
-      'Оцениваем соответствие обработки персональных данных — сайта, документов и процессов. Без запугивания, без обещаний штрафов. С проверяемыми доказательствами и ясным планом исправления.',
-    primaryCta: 'Бесплатная проверка сайта',
-    secondaryCta: 'Смотреть услуги',
+      'Кинематографическая digital-студия. Создаём сайты, приложения и системы соответствия Закону № 195/2024 — с одинаковой визуальной и технической строгостью.',
+    primaryCta: 'Начать проект',
+    secondaryCta: 'Проверить сайт бесплатно',
     trustNote:
       'Этот сайт проходит нашу собственную проверку. Сторонние скрипты не запускаются до вашего согласия.',
   },
@@ -1000,6 +1091,66 @@ const ru: Dict = {
       },
     ],
     backToList: '← Назад к списку услуг',
+  },
+  studio: {
+    badge: 'СТУДИЯ · WEB · APPS',
+    title: 'Создаём кинематографические цифровые продукты',
+    lead:
+      'Как исполнительное консалтинговое агентство мы берёмся за любой проект, который клиент может представить — при условии реалистичного бюджета. Работаем с современными технологиями, не перечисляя их как резюме.',
+    webTitle: 'Веб-разработка',
+    webLead:
+      'Сайты, веб-приложения, интернет-магазины, корпоративные порталы. От визитки до SaaS — с кинематографическим дизайном и встроенным GDPR-соответствием.',
+    webFeatures: [
+      { title: 'Кинематографические сайты', desc: 'Сильный визуальный дизайн, плавные анимации, аккуратная типографика.' },
+      { title: 'Веб-приложения', desc: 'Дашборды, порталы, SaaS — с авторизацией и ролями.' },
+      { title: 'E-commerce', desc: 'Быстрые интернет-магазины, интеграции платежей и CRM.' },
+      { title: 'Headless CMS', desc: 'Контент, редактируемый без разработчика, с preview в реальном времени.' },
+    ],
+    appsTitle: 'Мобильные приложения',
+    appsLead:
+      'Нативные и кросс-платформенные приложения для iOS и Android. Одна кодовая база, нативный опыт на каждой платформе.',
+    appsFeatures: [
+      { title: 'Cross-platform', desc: 'Единая база кода для iOS и Android.' },
+      { title: 'Offline-first', desc: 'Локальные данные синхронизуются при появлении соединения.' },
+      { title: 'Push-уведомления', desc: 'Коммуникация с пользователями, сегментация, автоматизации.' },
+      { title: 'Публикация', desc: 'Полная поддержка для App Store и Google Play.' },
+    ],
+    processTitle: 'Наш процесс',
+    processLead: 'Пять чётких этапов. Без сюрпризов.',
+    steps: [
+      { n: '01', title: 'Discovery', desc: 'Понимаем цель, аудиторию, ограничения. Определяем рамки.' },
+      { n: '02', title: 'Дизайн', desc: 'Wireframes, прототип, дизайн-система. Утверждаем вместе.' },
+      { n: '03', title: 'Разработка', desc: 'Еженедельные спринты с demo. Тестируемый код, регулярные ревью.' },
+      { n: '04', title: 'Compliance', desc: 'GDPR, cookie, формы, политики — встроены, а не прилеплены.' },
+      { n: '05', title: 'Запуск', desc: 'Публикация, мониторинг, поддержка. Итерируем по реальным данным.' },
+    ],
+    stackTitle: 'Технические возможности',
+    stackLead: 'Не перечисляем технологии как резюме. Используем подходящий стек под каждый проект.',
+    capabilities: [
+      { title: 'Современный frontend', desc: 'SPA-фреймворки, SSR, анимации, дизайн-системы.' },
+      { title: 'Надёжный backend', desc: 'API, базы данных, авторизация, сторонние интеграции.' },
+      { title: 'Mobile', desc: 'Нативные и кросс-платформенные приложения для iOS и Android.' },
+      { title: 'Инфраструктура', desc: 'Cloud, CI/CD, мониторинг, резервные копии, безопасность.' },
+    ],
+    ndaTitle: 'Строгая конфиденциальность',
+    ndaLead:
+      'Мы не публикуем имена клиентов, логотипы или детали проектов. Наша NDA-политика — часть договора с каждым клиентом.',
+    ndaItems: [
+      { title: 'NDA с каждым клиентом', desc: 'Подписывается в начале сотрудничества, без исключений.' },
+      { title: 'Без логотипов клиентов', desc: 'Не используем идентичность клиента в маркетинге.' },
+      { title: 'Разделение данных', desc: 'Доступ к данным клиента только у команды проекта.' },
+      { title: 'Удаление по завершении', desc: 'По окончании сотрудничества возвращаем или удаляем данные.' },
+    ],
+    statsTitle: 'Возможности',
+    stats: [
+      { value: 'от 150€', label: 'Стартовая цена' },
+      { value: '3 отдела', label: 'Юр · IT · PM' },
+      { value: '99.5%', label: 'Гарантированный uptime' },
+      { value: '30 дней', label: 'До первого демо' },
+    ],
+    ctaTitle: 'Есть проект на примете?',
+    ctaText: 'Обсудим цели, ограничения и бюджет. Цены начинаются от 150€ и адаптируются под требования.',
+    ctaButton: 'Начать проект',
   },
   methodology: {
     title: 'Методология',
@@ -1221,13 +1372,13 @@ const ru: Dict = {
   about: {
     title: 'О нас',
     lead:
-      'Команда с опытом в защите данных, юридической сфере и IT. Работаем с организациями Республики Молдовы, которым нужна серьёзная оценка соответствия.',
+      'Исполнительное консалтинговое агентство с тремя отделами: Юридический, IT и Project Management. Работаем с организациями Республики Молдовы, которым нужны серьёзные оценки, технические внедрения и end-to-end сопровождение.',
     body:
-      'Мы запустили DATARISK MOLDOVA из простого наблюдения: организациям нужны оценки, которые показывают именно то, что происходит, а не маркетинговые отчёты. Многие клиенты приходят к нам после предложений «сертификации GDPR» или «ноля санкций» — того, что никто не может гарантировать. Мы работаем иначе: фиксируем то, что доказано, формулируем выводы на языке каждого участника и оставляем клиента с планом, который он может выполнить.',
+      'Мы запустили DATARISK MOLDOVA как исполнительное консалтинговое агентство, которое берётся за любой проект, который клиент может себе представить — при условии, что бюджет и цели реалистичны. Наша структура состоит из трёх отдельных отделов: Юридический (соответствие, договоры, GDPR), IT (веб-разработка, приложения, интеграции) и Project Management (планирование, сдача, контроль качества). Это разделение позволяет нам обеспечить, чтобы каждый проект вели подходящие специалисты, без смешивания ролей и без обещаний того, что мы не сможем выполнить.',
     status: {
       title: 'Наш статус',
       text:
-        'Мы не надзорный орган и не выдаём сертификаты соответствия. Работаем как внешний оценщик, и наши выводы носят характер профессиональной оценки.',
+        'Мы не надзорный орган и не выдаём сертификаты соответствия. Мы работаем как исполнительное консалтинговое агентство, и наши выводы носят характер профессиональной оценки.',
     },
     principles: [
       {
@@ -1281,10 +1432,11 @@ const ru: Dict = {
     info: {
       emailLabel: 'E-mail',
       phoneLabel: 'Телефон',
+      phone: '+373 7896 2932',
       hoursLabel: 'Часы работы',
       hours: 'Понедельник–Пятница, 9:00–18:00 (Кишинёв)',
-      addressLabel: 'Адрес',
-      address: 'Кишинёв, Республика Молдова',
+      addressLabel: 'Локация',
+      address: 'Выезжаем на локацию к клиенту — по всей Республике Молдова',
       dpoLabel: 'Ответственный за защиту данных',
       dpo: 'dpo@datarisk.md',
       responseLabel: 'Срок ответа',
@@ -1324,7 +1476,7 @@ const ru: Dict = {
   },
   footer: {
     about:
-      'DATARISK MOLDOVA — оценка соответствия Закону № 195/2024 о защите персональных данных.',
+      'DATARISK MOLDOVA SRL — кинематографическая digital-студия. GDPR-соответствие, веб-разработка и мобильные приложения. Закон № 195/2024.',
     navTitle: 'Навигация',
     legalTitle: 'Правовые документы',
     contactTitle: 'Контакты',
@@ -1341,7 +1493,7 @@ const ru: Dict = {
       sections: [
         {
           h: '1. Оператор',
-          p: 'Оператор данных — DATARISK MOLDOVA, Кишинёв, Республика Молдова. Контакт: dpo@datarisk.md.',
+          p: 'Оператор данных — DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Контакт: dpo@datarisk.md, +373 7896 2932.',
         },
         {
           h: '2. Собираемые данные',
@@ -1493,15 +1645,16 @@ const ru: Dict = {
 // ============ English ============
 const en: Dict = {
   brand: {
-    name: 'DATARISK MOLDOVA',
-    tagline: 'Compliance assessment under Law No. 195/2024',
-    country: 'Republic of Moldova',
+    name: 'DATARISK',
+    tagline: 'Cinematic studio · Compliance · Web · Apps',
+    country: 'Republic of Moldova · Law No. 195/2024',
   },
   nav: {
     home: 'Home',
-    services: 'Services',
+    services: 'GDPR',
+    studio: 'Studio',
     methodology: 'Methodology',
-    check: 'Free check',
+    check: 'Check',
     cases: 'Cases',
     blog: 'Knowledge',
     templates: 'Templates',
@@ -1510,19 +1663,20 @@ const en: Dict = {
     faq: 'FAQ',
   },
   cta: {
-    checkSite: 'Check site for free',
+    checkSite: 'Check site',
     contactUs: 'Request consultation',
     viewServices: 'View services',
     readMore: 'Read more',
+    startProject: 'Start a project',
   },
   hero: {
-    badge: 'Law No. 195/2024 · Republic of Moldova',
-    titleA: 'We show what is actually proven.',
-    titleB: 'We do not call a violation what is not proven.',
+    badge: 'CINEMATIC STUDIO · COMPLIANCE · WEB · APPS',
+    titleA: ' We build.',
+    titleB: 'We make it compliant.',
     lead:
-      'We assess the compliance of personal data processing — of the website, the documents and the processes. Without fear-mongering, without promising penalties. With verifiable evidence and a clear remediation plan.',
-    primaryCta: 'Free site check',
-    secondaryCta: 'View services',
+      'A cinematic digital studio. We build sites, apps and compliance systems under Law No. 195/2024 — with the same visual and technical rigor.',
+    primaryCta: 'Start a project',
+    secondaryCta: 'Check a site for free',
     trustNote:
       'This site passes our own audit. No third-party script runs until you give consent.',
   },
@@ -1643,6 +1797,66 @@ const en: Dict = {
       },
     ],
     backToList: '← Back to service list',
+  },
+  studio: {
+    badge: 'STUDIO · WEB · APPS',
+    title: 'We build cinematic digital products',
+    lead:
+      'As an executive consulting agency, we take on any project the client can imagine — as long as the budget is realistic. We work with modern technologies without listing them like a CV.',
+    webTitle: 'Web Development',
+    webLead:
+      'Sites, web apps, online stores, corporate portals. From brochure to SaaS — with cinematic design and integrated GDPR compliance.',
+    webFeatures: [
+      { title: 'Cinematic sites', desc: 'Strong visual design, fluid animations, careful typography.' },
+      { title: 'Web apps', desc: 'Dashboards, portals, SaaS — with authentication and roles.' },
+      { title: 'E-commerce', desc: 'Fast online stores, payment and CRM integrations.' },
+      { title: 'Headless CMS', desc: 'Content editable without a developer, with real-time preview.' },
+    ],
+    appsTitle: 'Mobile Apps',
+    appsLead:
+      'Native and cross-platform apps for iOS and Android. One codebase, native experience on each platform.',
+    appsFeatures: [
+      { title: 'Cross-platform', desc: 'One codebase for iOS and Android.' },
+      { title: 'Offline-first', desc: 'Local data synced when the connection comes back.' },
+      { title: 'Push notifications', desc: 'User communication, segmentation, automations.' },
+      { title: 'Publishing', desc: 'Full assistance for App Store and Google Play.' },
+    ],
+    processTitle: 'Our process',
+    processLead: 'Five clear stages. No surprises.',
+    steps: [
+      { n: '01', title: 'Discovery', desc: 'We understand the goal, audience, constraints. We define the scope.' },
+      { n: '02', title: 'Design', desc: 'Wireframes, prototype, design system. We approve together.' },
+      { n: '03', title: 'Build', desc: 'Weekly sprints with demos. Tested code, regular reviews.' },
+      { n: '04', title: 'Compliance', desc: 'GDPR, cookie, forms, policies — integrated, not bolted on.' },
+      { n: '05', title: 'Launch', desc: 'Release, monitoring, support. We iterate on real data.' },
+    ],
+    stackTitle: 'Technical capabilities',
+    stackLead: 'We do not list technologies like a CV. We use the right stack for each project.',
+    capabilities: [
+      { title: 'Modern frontend', desc: 'SPA frameworks, SSR, animations, design systems.' },
+      { title: 'Solid backend', desc: 'APIs, databases, authentication, third-party integrations.' },
+      { title: 'Mobile', desc: 'Native and cross-platform apps for iOS and Android.' },
+      { title: 'Infrastructure', desc: 'Cloud, CI/CD, monitoring, backups, security.' },
+    ],
+    ndaTitle: 'Strict confidentiality',
+    ndaLead:
+      'We do not publish client names, logos or project details. Our NDA policy is part of the contract with every client.',
+    ndaItems: [
+      { title: 'NDA with every client', desc: 'Signed at the start of the collaboration, no exceptions.' },
+      { title: 'No client logos', desc: 'We do not use the client’s identity in marketing.' },
+      { title: 'Segregated data', desc: 'Access to client data only for the project team.' },
+      { title: 'Erasure on completion', desc: 'At the end of the collaboration we return or delete the data.' },
+    ],
+    statsTitle: 'Capabilities',
+    stats: [
+      { value: 'from 150€', label: 'Starting price' },
+      { value: '3 depts', label: 'Legal · IT · PM' },
+      { value: '99.5%', label: 'Guaranteed uptime' },
+      { value: '30 days', label: 'To first demo' },
+    ],
+    ctaTitle: 'Got a project in mind?',
+    ctaText: 'We discuss goals, constraints and budget. Prices start from 150€ and adapt to requirements.',
+    ctaButton: 'Start a project',
   },
   methodology: {
     title: 'Methodology',
@@ -1864,13 +2078,13 @@ const en: Dict = {
   about: {
     title: 'About us',
     lead:
-      'A team with experience in data protection, legal and IT. We work with organisations in the Republic of Moldova that need a serious compliance assessment.',
+      'An executive consulting agency with three departments: Legal, IT, and Project Management. We work with organisations in the Republic of Moldova that need serious assessments, technical implementations and end-to-end support.',
     body:
-      'We started DATARISK MOLDOVA from a simple observation: organisations need assessments that show exactly what is happening, not marketing reports. Many clients come to us after receiving an offer that promised “GDPR certification” or “zero penalties” — things nobody can guarantee. We work differently: we identify what is proven, formulate conclusions in the language of each participant and leave the client with a plan they can execute.',
+      'We started DATARISK MOLDOVA as an executive consulting agency that takes on any project the client can imagine — as long as the budget and objectives are realistic. Our structure has three distinct departments: Legal (compliance, contracts, GDPR), IT (web development, apps, integrations) and Project Management (planning, delivery, quality control). This separation allows us to ensure that each project is led by the right specialists, without mixing roles and without promising what we cannot deliver.',
     status: {
       title: 'Our status',
       text:
-        'We are not a supervisory authority and we do not issue compliance certificates. We work as an external assessor, and our conclusions are professional assessments.',
+        'We are not a supervisory authority and we do not issue compliance certificates. We work as an executive consulting agency, and our conclusions are professional assessments.',
     },
     principles: [
       {
@@ -1924,10 +2138,11 @@ const en: Dict = {
     info: {
       emailLabel: 'E-mail',
       phoneLabel: 'Phone',
+      phone: '+373 7896 2932',
       hoursLabel: 'Hours',
       hours: 'Monday–Friday, 9:00–18:00 (Chișinău)',
-      addressLabel: 'Address',
-      address: 'Chișinău, Republic of Moldova',
+      addressLabel: 'Location',
+      address: 'We travel to the client’s premises — anywhere in the Republic of Moldova',
       dpoLabel: 'Data protection officer',
       dpo: 'dpo@datarisk.md',
       responseLabel: 'Response time',
@@ -1967,7 +2182,7 @@ const en: Dict = {
   },
   footer: {
     about:
-      'DATARISK MOLDOVA — compliance assessment under Law No. 195/2024 on personal data protection.',
+      'DATARISK MOLDOVA SRL — cinematic digital studio. GDPR compliance, web development and mobile apps. Law No. 195/2024.',
     navTitle: 'Navigation',
     legalTitle: 'Legal documents',
     contactTitle: 'Contact',
@@ -1984,7 +2199,7 @@ const en: Dict = {
       sections: [
         {
           h: '1. The controller',
-          p: 'The data controller is DATARISK MOLDOVA, based in Chișinău, Republic of Moldova. Contact: dpo@datarisk.md.',
+          p: 'The data controller is DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Contact: dpo@datarisk.md, +373 7896 2932.',
         },
         {
           h: '2. Data collected',
