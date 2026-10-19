@@ -25,7 +25,6 @@ export function StructuredData() {
     logo: `${DOMAIN}/logo.svg`,
     url: DOMAIN,
     telephone: '+37378962932',
-    email: 'hello@datarisk.md',
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     address: {
@@ -64,7 +63,6 @@ export function StructuredData() {
         '@type': 'ContactPoint',
         contactType: 'customer support',
         telephone: '+37378962932',
-        email: 'hello@datarisk.md',
         areaServed: 'MD',
         availableLanguage: ['Romanian', 'Russian', 'English'],
       },
@@ -72,17 +70,16 @@ export function StructuredData() {
         '@type': 'ContactPoint',
         contactType: 'technical support',
         telephone: '+37378962932',
-        email: 'dpo@datarisk.md',
         areaServed: 'MD',
         availableLanguage: ['Romanian', 'Russian', 'English'],
       },
     ],
-    // DPO — responsabil cu protecția datelor
+    // DPO — responsabil cu protecția datelor (contact prin telefon)
     employee: [
       {
         '@type': 'EmployeeRole',
         roleName: 'Data Protection Officer (DPO)',
-        email: 'dpo@datarisk.md',
+        telephone: '+37378962932',
       },
     ],
     knowsAbout: [

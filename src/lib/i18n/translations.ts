@@ -697,7 +697,7 @@ const ro: Dict = {
       addressLabel: 'Locație',
       address: 'Ne deplasăm la sediul clientului — în întreaga Republică Moldova',
       dpoLabel: 'Responsabil cu protecția datelor',
-      dpo: 'dpo@datarisk.md',
+      dpo: '+373 7896 2932',
       responseLabel: 'Termen de răspuns',
       response: 'Pentru solicitări: 1 zi lucrătoare. Pentru drepturile subiecților: conform art. 19 din Legea nr. 195/2024.',
     },
@@ -752,7 +752,7 @@ const ro: Dict = {
       sections: [
         {
           h: '1. Operatorul',
-          p: 'Operatorul datelor este DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Persoana de contact: dpo@datarisk.md, +373 7896 2932.',
+          p: 'Operatorul datelor este DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Persoana de contact: +373 7896 2932.',
         },
         {
           h: '2. Datele colectate',
@@ -768,11 +768,11 @@ const ro: Dict = {
         },
         {
           h: '5. Durata de stocare',
-          p: 'Datele formularului sunt trimise prin e-mail la adresa hello@datarisk.md folosind serviciul Brevo (Sendinblue) și sunt păstrate în căsuța de e-mail timp de 12 luni de la ultima interacțiune, după care sunt șterse automat. Datele NU sunt stocate într-o bază de date a site-ului. Datele din contractele semnate sunt păstrate pe durata contractului și 5 ani după.',
+          p: 'Datele formularului sunt trimise prin serviciul Brevo (Sendinblue) și sunt păstrate timp de 12 luni de la ultima interacțiune, după care sunt șterse automat. Datele NU sunt stocate într-o bază de date a site-ului. Datele din contractele semnate sunt păstrate pe durata contractului și 5 ani după.',
         },
         {
           h: '6. Drepturile dumneavoastră',
-          p: 'Aveți dreptul de acces, rectificare, ștergere, restricționare, portabilitate și opoziție. Puteți retrage consimțământul oricând, cu efect pentru viitor. Pentru exercitarea drepturilor: dpo@datarisk.md. Termen de răspuns: 30 de zile conform art. 19.',
+          p: 'Aveți dreptul de acces, rectificare, ștergere, restricționare, portabilitate și opoziție. Puteți retrage consimțământul oricând, cu efect pentru viitor. Pentru exercitarea drepturilor: telefonic la +373 7896 2932. Termen de răspuns: 30 de zile conform art. 19.',
         },
         {
           h: '7. Locul de prelucrare',
@@ -816,7 +816,7 @@ const ro: Dict = {
       sections: [
         {
           h: '1. Definiții',
-          p: '„Site” — site-ul web datarisk.md. „Operator” — DATARISK MOLDOVA. „Utilizator” — orice persoană care accesează site-ul.',
+          p: '„Site” — site-ul web datarisk.vip. „Operator” — DATARISK MOLDOVA SRL. „Utilizator” — orice persoană care accesează site-ul.',
         },
         {
           h: '2. Conținutul',
@@ -856,7 +856,7 @@ const ro: Dict = {
         },
         {
           h: '4. Sub-procesatori',
-          p: 'Folosim un serviciu de e-mail pe propriul domeniu și un sistem de gestionare internă a solicitărilor. Lista actualizată: dpo@datarisk.md.',
+          p: 'Folosim serviciul Brevo (Sendinblue) pentru transmiterea solicitărilor. Lista actualizată: +373 7896 2932.',
         },
         {
           h: '5. Ștergerea la finalul misiunii',
@@ -1384,7 +1384,7 @@ const ru: Dict = {
       addressLabel: 'Локация',
       address: 'Выезжаем на локацию к клиенту — по всей Республике Молдова',
       dpoLabel: 'Ответственный за защиту данных',
-      dpo: 'dpo@datarisk.md',
+      dpo: '+373 7896 2932',
       responseLabel: 'Срок ответа',
       response: 'На заявки: 1 рабочий день. На запросы субъектов: по ст. 19 Закона № 195/2024.',
     },
@@ -1439,7 +1439,7 @@ const ru: Dict = {
       sections: [
         {
           h: '1. Оператор',
-          p: 'Оператор данных — DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Контакт: dpo@datarisk.md, +373 7896 2932.',
+          p: 'Оператор данных — DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Контакт: +373 7896 2932.',
         },
         {
           h: '2. Собираемые данные',
@@ -1455,11 +1455,11 @@ const ru: Dict = {
         },
         {
           h: '5. Срок хранения',
-          p: 'Данные формы отправляются по электронной почте на адрес hello@datarisk.md с помощью сервиса Brevo (Sendinblue) и хранятся в почтовом ящике в течение 12 месяцев с момента последнего взаимодействия, после чего автоматически удаляются. Данные НЕ хранятся в базе данных сайта. Данные по подписанным договорам — на срок договора и 5 лет после.',
+          p: 'Данные формы отправляются с помощью сервиса Brevo (Sendinblue) и хранятся в течение 12 месяцев с момента последнего взаимодействия, после чего автоматически удаляются. Данные НЕ хранятся в базе данных сайта. Данные по подписанным договорам — на срок договора и 5 лет после.',
         },
         {
           h: '6. Ваши права',
-          p: 'Вы имеете право доступа, исправления, удаления, ограничения, переносимости и возражения. Можете отозвать согласие в любой момент с действием на будущее. Для реализации прав: dpo@datarisk.md. Срок ответа: 30 дней по ст. 19.',
+          p: 'Вы имеете право доступа, исправления, удаления, ограничения, переносимости и возражения. Можете отозвать согласие в любой момент с действием на будущее. Для реализации прав: по телефону +373 7896 2932. Срок ответа: 30 дней по ст. 19.',
         },
         {
           h: '7. Место обработки',
@@ -1503,7 +1503,7 @@ const ru: Dict = {
       sections: [
         {
           h: '1. Определения',
-          p: '«Сайт» — сайт datarisk.md. «Оператор» — DATARISK MOLDOVA. «Пользователь» — любое лицо, заходящее на сайт.',
+          p: '«Сайт» — сайт datarisk.vip. «Оператор» — DATARISK MOLDOVA SRL. «Пользователь» — любое лицо, заходящее на сайт.',
         },
         {
           h: '2. Содержание',
@@ -1543,7 +1543,7 @@ const ru: Dict = {
         },
         {
           h: '4. Субобработчики',
-          p: 'Используем почту на собственном домене и внутреннюю систему учёта заявок. Актуальный список: dpo@datarisk.md.',
+          p: 'Используем сервис Brevo (Sendinblue) для отправки заявок. Актуальный список: +373 7896 2932.',
         },
         {
           h: '5. Удаление по завершении',
@@ -2071,7 +2071,7 @@ const en: Dict = {
       addressLabel: 'Location',
       address: 'We travel to the client’s premises — anywhere in the Republic of Moldova',
       dpoLabel: 'Data protection officer',
-      dpo: 'dpo@datarisk.md',
+      dpo: '+373 7896 2932',
       responseLabel: 'Response time',
       response: 'Requests: 1 business day. Subject rights: under Article 19 of Law No. 195/2024.',
     },
@@ -2126,7 +2126,7 @@ const en: Dict = {
       sections: [
         {
           h: '1. The controller',
-          p: 'The data controller is DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Contact: dpo@datarisk.md, +373 7896 2932.',
+          p: 'The data controller is DATARISK MOLDOVA SRL, IDNO 1026023020925, IBAN MD47AG000000022597426741 (BC MAIB SA, SWIFT AGRNMD2X). Contact: +373 7896 2932.',
         },
         {
           h: '2. Data collected',
@@ -2142,11 +2142,11 @@ const en: Dict = {
         },
         {
           h: '5. Retention period',
-          p: 'Form data is sent by email to hello@datarisk.md using the Brevo (Sendinblue) service and is kept in the mailbox for 12 months from the last interaction, after which it is automatically deleted. Data is NOT stored in a website database. Data from signed contracts is kept for the duration of the contract and 5 years after.',
+          p: 'Form data is sent using the Brevo (Sendinblue) service and is kept for 12 months from the last interaction, after which it is automatically deleted. Data is NOT stored in a website database. Data from signed contracts is kept for the duration of the contract and 5 years after.',
         },
         {
           h: '6. Your rights',
-          p: 'You have the right of access, rectification, erasure, restriction, portability and objection. You may withdraw consent at any time, with effect for the future. To exercise your rights: dpo@datarisk.md. Response time: 30 days under Article 19.',
+          p: 'You have the right of access, rectification, erasure, restriction, portability and objection. You may withdraw consent at any time, with effect for the future. To exercise your rights: call +373 7896 2932. Response time: 30 days under Article 19.',
         },
         {
           h: '7. Place of processing',
@@ -2190,7 +2190,7 @@ const en: Dict = {
       sections: [
         {
           h: '1. Definitions',
-          p: '“Site” means the website datarisk.md. “Controller” means DATARISK MOLDOVA. “User” means any person accessing the site.',
+          p: '“Site” means the website datarisk.vip. “Controller” means DATARISK MOLDOVA SRL. “User” means any person accessing the site.',
         },
         {
           h: '2. Content',
@@ -2230,7 +2230,7 @@ const en: Dict = {
         },
         {
           h: '4. Sub-processors',
-          p: 'We use e-mail on our own domain and an internal request management system. Updated list: dpo@datarisk.md.',
+          p: 'We use the Brevo (Sendinblue) service for sending requests. Updated list: +373 7896 2932.',
         },
         {
           h: '5. Erasure at end of engagement',

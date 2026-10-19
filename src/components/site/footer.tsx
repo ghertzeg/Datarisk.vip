@@ -3,7 +3,7 @@
 import { useSiteStore, type ViewKey } from '@/lib/store'
 import { useDict } from '@/lib/i18n/use-dict'
 import { Button } from '@/components/ui/button'
-import { Shield, Mail, Phone, MapPin, Clock, Settings } from 'lucide-react'
+import { Shield, Phone, MapPin, Clock, Settings } from 'lucide-react'
 import { CookieSettingsLauncher } from './cookie-settings-launcher'
 
 export function Footer() {
@@ -107,18 +107,6 @@ export function Footer() {
                 <Phone className="size-4 mt-0.5 text-muted-foreground shrink-0" aria-hidden />
                 <a href="tel:+37378962932" className="text-foreground/80 hover:text-brand">
                   +373 7896 2932
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail className="size-4 mt-0.5 text-muted-foreground shrink-0" aria-hidden />
-                <a href="mailto:hello@datarisk.md" className="text-foreground/80 hover:text-brand">
-                  hello@datarisk.md
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail className="size-4 mt-0.5 text-muted-foreground shrink-0" aria-hidden />
-                <a href="mailto:dpo@datarisk.md" className="text-foreground/80 hover:text-brand">
-                  {t.contact.info.dpoLabel}: dpo@datarisk.md
                 </a>
               </li>
               <li className="flex items-start gap-2">

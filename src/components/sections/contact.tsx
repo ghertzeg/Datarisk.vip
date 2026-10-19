@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { CheckCircle2, Mail, Phone, Clock, MapPin, Shield } from 'lucide-react'
+import { CheckCircle2, Phone, Clock, MapPin, Shield } from 'lucide-react'
 
 export function Contact() {
   const t = useDict()
@@ -244,16 +244,6 @@ export function Contact() {
               <InfoRow icon={<Phone className="size-4" />} label={t.contact.info.phoneLabel}>
                 <a href="tel:+37378962932" className="hover:text-brand">
                   {t.contact.info.phone}
-                </a>
-              </InfoRow>
-              <InfoRow icon={<Mail className="size-4" />} label={t.contact.info.emailLabel}>
-                <a href="mailto:hello@datarisk.md" className="hover:text-brand">
-                  hello@datarisk.md
-                </a>
-              </InfoRow>
-              <InfoRow icon={<Mail className="size-4" />} label={t.contact.info.dpoLabel}>
-                <a href="mailto:dpo@datarisk.md" className="hover:text-brand">
-                  dpo@datarisk.md
                 </a>
               </InfoRow>
               <InfoRow icon={<Clock className="size-4" />} label={t.contact.info.hoursLabel}>
