@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://datarisk.md'
+const BASE_URL = 'https://datarisk.vip'
 
 export default function robots(): MetadataRoute.Robots {
   return {

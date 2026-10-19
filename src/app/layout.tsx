@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { SiteStoreBootstrap } from "@/components/site/store-bootstrap";
+import { StructuredData } from "@/components/site/structured-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,8 @@ export default function RootLayout({
       <head>
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="theme-color" content="#0f1115" />
+        {/* Schema.org / JSON-LD: ProfessionalService (LocalBusiness subtype) */}
+        <StructuredData />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
