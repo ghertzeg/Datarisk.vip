@@ -21,6 +21,8 @@ export function Contact() {
   const t = useDict()
   const setView = useSiteStore((s) => s.setView)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [honeypot, setHoneypot] = useState('') // anti-spam
   const [form, setForm] = useState({
     name: '',
     org: '',
@@ -31,11 +33,44 @@ export function Contact() {
     consent: false,
   })
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!form.consent) return
-    if (!form.name || !form.email || !form.taskType) return
-    setSubmitted(true)
+    if (!form.consent) {
+      toast.error('Vă rugăm să bifati consimțământul.')
+      return
+    }
+    if (!form.name || !form.email || !form.taskType) {
+      toast.error('Completați câmpurile obligatorii.')
+      return
+    }
+    setSubmitting(true)
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'contact',
+          name: form.name,
+          org: form.org,
+          email: form.email,
+          phone: form.phone,
+          taskType: form.taskType,
+          description: form.description,
+          consent: form.consent,
+          website: honeypot, // honeypot
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'server_error')
+      }
+      setSubmitted(true)
+    } catch (err) {
+      toast.error('Eroare la trimitere. Încercați din nou sau scrieți-ne pe e-mail.')
+      console.error('Submit error:', err)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -169,8 +204,31 @@ export function Contact() {
                 </Label>
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                {t.contact.form.submit}
+              {/* Honeypot — скрытое поле для защиты от ботов. Люди его не видят. */}
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: 1,
+                  height: 1,
+                  opacity: 0,
+                }}
+              />
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={submitting}
+              >
+                {submitting ? 'Se trimite...' : t.contact.form.submit}
               </Button>
             </form>
           )}

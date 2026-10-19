@@ -768,7 +768,7 @@ const ro: Dict = {
         },
         {
           h: '5. Durata de stocare',
-          p: 'Datele solicitărilor fără contract sunt păstrate 12 luni de la ultima interacțiune. Datele din contractele semnate sunt păstrate pe durata contractului și 5 ani după.',
+          p: 'Datele formularului sunt trimise prin e-mail la adresa hello@datarisk.md folosind serviciul Brevo (Sendinblue) și sunt păstrate în căsuța de e-mail timp de 12 luni de la ultima interacțiune, după care sunt șterse automat. Datele NU sunt stocate într-o bază de date a site-ului. Datele din contractele semnate sunt păstrate pe durata contractului și 5 ani după.',
         },
         {
           h: '6. Drepturile dumneavoastră',
@@ -1455,7 +1455,7 @@ const ru: Dict = {
         },
         {
           h: '5. Срок хранения',
-          p: 'Данные заявок без договора хранятся 12 месяцев с момента последнего взаимодействия. Данные по подписанным договорам — на срок договора и 5 лет после.',
+          p: 'Данные формы отправляются по электронной почте на адрес hello@datarisk.md с помощью сервиса Brevo (Sendinblue) и хранятся в почтовом ящике в течение 12 месяцев с момента последнего взаимодействия, после чего автоматически удаляются. Данные НЕ хранятся в базе данных сайта. Данные по подписанным договорам — на срок договора и 5 лет после.',
         },
         {
           h: '6. Ваши права',
@@ -2142,7 +2142,7 @@ const en: Dict = {
         },
         {
           h: '5. Retention period',
-          p: 'Data of requests without a contract is kept for 12 months from the last interaction. Data from signed contracts is kept for the duration of the contract and 5 years after.',
+          p: 'Form data is sent by email to hello@datarisk.md using the Brevo (Sendinblue) service and is kept in the mailbox for 12 months from the last interaction, after which it is automatically deleted. Data is NOT stored in a website database. Data from signed contracts is kept for the duration of the contract and 5 years after.',
         },
         {
           h: '6. Your rights',
