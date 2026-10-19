@@ -1,31 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
 
 /**
  * API route: POST /api/submit
  *
- * Принимает данные формы с сайта и отправляет их на email через Brevo SMTP.
+ * Принимает данные формы с сайта и отправляет их на email через Brevo REST API v3.
  * Данные формы НЕ сохраняются в БД — только пересылаются на email оператора.
  *
- * Brevo SMTP settings:
- *   Host: smtp-relay.brevo.com
- *   Port: 587 (STARTTLS)
- *   User: hello@datarisk.md (или любой верифицированный email)
- *   Pass: BREVO_API_KEY (SMTP-ключ формата xsmtpsib-...)
+ * Brevo REST API v3:
+ *   Endpoint: https://api.brevo.com/v3/smtp/email
+ *   Header: api-key: BREVO_API_KEY
+ *   Ключ может быть SMTP (xsmtpsib-...) или v3 (xkeysib-...)
  *
  * Безопасность:
  * - Проверка обязательных полей и consent
  * - Проверка email-формата
  * - Honeypot (anti-spam)
  * - HTML-санитизация
+ * - Детальные ошибки для диагностики
  */
+
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email'
 
 // Простая валидация email
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254
 }
 
-// Sanitize — экранируем HTML, чтобы предотвратить инъекции в письмо
+// Sanitize — экранируем HTML
 function sanitize(text: string): string {
   return text
     .replace(/&/g, '&amp;')
@@ -55,14 +56,21 @@ export async function POST(request: NextRequest) {
   const fromEmail = process.env.BREVO_FROM_EMAIL || 'hello@datarisk.md'
   const fromName = process.env.BREVO_FROM_NAME || 'DATARISK MOLDOVA'
 
+  // 1. Проверяем, что BREVO_API_KEY задан
   if (!apiKey) {
-    console.error('BREVO_API_KEY не настроен в environment variables')
+    console.error('[submit] BREVO_API_KEY is not set in environment variables')
     return NextResponse.json(
-      { ok: false, error: 'server_not_configured' },
+      {
+        ok: false,
+        error: 'server_not_configured',
+        message:
+          'BREVO_API_KEY env var is missing. Add it in Vercel → Settings → Environment Variables.',
+      },
       { status: 500 }
     )
   }
 
+  // 2. Парсим тело запроса
   let body: FormPayload
   try {
     body = await request.json()
@@ -73,12 +81,12 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Honeypot: если заполнено — это бот, тихо отклоняем
+  // 3. Honeypot: если заполнено — это бот
   if (body.website && body.website.length > 0) {
     return NextResponse.json({ ok: true, spam: true }, { status: 200 })
   }
 
-  // Проверка consent
+  // 4. Проверка consent
   if (!body.consent) {
     return NextResponse.json(
       { ok: false, error: 'consent_required' },
@@ -86,7 +94,7 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Проверка email
+  // 5. Проверка email
   if (!body.email || !isValidEmail(body.email)) {
     return NextResponse.json(
       { ok: false, error: 'invalid_email' },
@@ -94,7 +102,7 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Проверка обязательных полей по типу формы
+  // 6. Проверка обязательных полей по типу формы
   if (body.formType === 'check') {
     if (!body.site || body.site.length < 3) {
       return NextResponse.json(
@@ -122,7 +130,7 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Формируем содержимое письма
+  // 7. Формируем содержимое письма
   const isCheckForm = body.formType === 'check'
   const subject = isCheckForm
     ? `[VERIFICARE] Solicitare verificare site — ${body.site}`
@@ -171,34 +179,66 @@ export async function POST(request: NextRequest) {
     </html>
   `
 
-  // Создаём SMTP transporter для Brevo
-  const transporter = nodemailer.createTransport({
-    host: 'smtp-relay.brevo.com',
-    port: 587,
-    secure: false, // true для 465, false для 587/STARTTLS
-    auth: {
-      user: fromEmail, // верифицированный sender email
-      pass: apiKey, // SMTP-ключ (xsmtpsib-...)
-    },
-  })
-
+  // 8. Отправляем через Brevo REST API v3
   try {
-    const info = await transporter.sendMail({
-      from: `"${fromName}" <${fromEmail}>`,
-      to: `"DATARISK MOLDOVA" <${toEmail}>`,
-      replyTo: `"${body.name || body.email}" <${body.email}>`,
-      subject,
-      html: htmlContent,
+    const brevoResponse = await fetch(BREVO_API_URL, {
+      method: 'POST',
       headers: {
-        'X-Mailer': 'DATARISK MOLDOVA (Next.js + nodemailer)',
+        accept: 'application/json',
+        'api-key': apiKey,
+        'content-type': 'application/json',
       },
+      body: JSON.stringify({
+        sender: { name: fromName, email: fromEmail },
+        to: [{ email: toEmail, name: 'DATARISK MOLDOVA' }],
+        replyTo: { email: body.email, name: body.name || body.email },
+        subject,
+        htmlContent,
+        tags: [body.formType],
+      }),
     })
 
-    return NextResponse.json({ ok: true, messageId: info.messageId })
+    if (!brevoResponse.ok) {
+      let errorBody: unknown = null
+      try {
+        errorBody = await brevoResponse.json()
+      } catch {
+        errorBody = await brevoResponse.text()
+      }
+      console.error('[submit] Brevo API error:', {
+        status: brevoResponse.status,
+        statusText: brevoResponse.statusText,
+        body: errorBody,
+        fromEmail,
+        toEmail,
+      })
+      // Возвращаем клиенту понятную ошибку
+      let clientError = 'email_send_failed'
+      let clientMessage = 'Failed to send email via Brevo'
+      if (brevoResponse.status === 401) {
+        clientError = 'brevo_unauthorized'
+        clientMessage =
+          'BREVO_API_KEY is invalid or expired. Generate a new key in Brevo → SMTP & API → API Keys.'
+      } else if (brevoResponse.status === 400) {
+        clientError = 'brevo_bad_request'
+        clientMessage =
+          'Brevo rejected the request. Check that sender email is verified in Brevo → Senders & IP.'
+      } else if (brevoResponse.status === 429) {
+        clientError = 'brevo_rate_limit'
+        clientMessage = 'Rate limit exceeded. Wait a moment and try again.'
+      }
+      return NextResponse.json(
+        { ok: false, error: clientError, message: clientMessage, brevoStatus: brevoResponse.status },
+        { status: 502 }
+      )
+    }
+
+    const result = (await brevoResponse.json()) as { messageId?: string }
+    return NextResponse.json({ ok: true, messageId: result.messageId })
   } catch (error) {
-    console.error('Failed to send email via Brevo SMTP:', error)
+    console.error('[submit] Network error:', error)
     return NextResponse.json(
-      { ok: false, error: 'email_send_failed' },
+      { ok: false, error: 'network_error', message: String(error) },
       { status: 502 }
     )
   }
@@ -206,9 +246,13 @@ export async function POST(request: NextRequest) {
 
 // GET — для проверки, что endpoint живой
 export async function GET() {
+  const hasKey = !!process.env.BREVO_API_KEY
   return NextResponse.json({
     ok: true,
     endpoint: '/api/submit',
     methods: ['POST'],
+    configured: hasKey,
+    fromEmail: process.env.BREVO_FROM_EMAIL || '(default hello@datarisk.md)',
+    toEmail: process.env.BREVO_TO_EMAIL || '(default hello@datarisk.md)',
   })
 }
